@@ -9,7 +9,7 @@ layout: default
       <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
 
       <div class="entry">
-        {{ post.date }}
+        {{ post.date | date: "%A, %B %-d, %Y" }}
       </div>
     </article>
   {% endfor %}
