@@ -12,4 +12,4 @@ Shouldn't software development be efficient enough such that engineers don't hav
 When will we stop reinventing the wheel?
 Don't get me started on the frequency of JS frameworks that keeps increasing every year.
 
-# Work In Progress...
+### To be continued..
