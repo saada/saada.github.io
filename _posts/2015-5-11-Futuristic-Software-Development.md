@@ -13,13 +13,26 @@ Shouldn't software development be more efficient as time passes?
 If we were to start over with all the lessons that we've learned over the past decade
 and attempted to build a new foundation for software, what would that look like?
 
-What if humanity didn't need to rewrite the same piece of software over and over.
+ > What if humanity didn't need to rewrite the same piece of software over and over?
+
 With the wide variety of high-level programming languages, it becomes very difficult
 to reuse libraries across software architectures. The best we can do is duplicate the work
 done in one language as closely as possible. Think of Rails (Ruby), Djano (Python), Yii/Larvel (PHP),
 they're all solving the same problems over and over in slightly different ways.
 
-The end goal of all these projects is quite similar, but the paths deviate slightly.
+To name a few:
+
+  - ActiveRecord
+  - Database Drivers
+  - Database Migrations
+  - Validations
+  - Asset Pipelines
+  - Testing Infrastructure
+  - HTTP routing
+  - Cookie & Session Management
+  - ...
+
+The end goal of all these projects is quite similar, but the paths deviate slightly. The first attempt that is closer to this goal is the [Meteor](https://www.meteor.com) project.
 What if we only had to build that infrastructure once?
 What if the system architecture of Netflix was the same one built for Youtube, Amazon video, etc...?
 I guess that would eliminate the competition between them.
