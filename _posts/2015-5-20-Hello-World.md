@@ -1,9 +1,7 @@
 ---
 layout: post
-title: You're up and running!
+title: Hello, World!
 ---
-
-# Hello, World!
 
 I want to start my first blog post as a special thanks to Barry Clark who developed the Jekyll setup I'm using.
 I'm really excited to start writing and sharing my knowledge with the world through this platform.
