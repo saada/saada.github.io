@@ -17,6 +17,7 @@ const MenuItem = styled.h2`
 
 const Layout = ({ children }) => (
   <div>
+    {/*
     <Logo>Mahmoud Saada</Logo>
     <HorizontalMenu>
       <MenuItem>Menu 1</MenuItem>
@@ -24,6 +25,7 @@ const Layout = ({ children }) => (
       <MenuItem>Menu 3</MenuItem>
       <MenuItem>Menu 4</MenuItem>
     </HorizontalMenu>
+    */}
     {children}
   </div>
 )
