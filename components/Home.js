@@ -1,9 +1,12 @@
 import React, { Component } from "react"
 import Layout from "./Layout"
 import ReactMarkdown from "react-markdown"
+import imageURL from "../images/mahmoudsaada.jpg"
 
 const markdown = `
 Mahmoud Saada
+
+![image](${imageURL})
 
 # Work Experience
 
