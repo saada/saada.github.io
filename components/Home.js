@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import Layout from "./Layout"
 import ReactMarkdown from "react-markdown"
-import imageURL from "../images/mahmoudsaada.jpg"
+import landingURL from "../images/mahmoudsaada.jpg"
+import ckaURL from "../images/logo_cka.png"
 
 const markdown = `
 Mahmoud Saada
 
-![landing](${imageURL})
+![landing](${landingURL})
 
 # Work Experience
 
@@ -39,7 +40,7 @@ Visualization tool for Docker container networks
 # Certifications
 
 ## Certified Kubernetes Administrator
-![cka](https://training.cncf.io/system/files/lfp_cert_badge/logo_cka.png)
+![cka](${ckaURL})
 
 # Contact Me
 
