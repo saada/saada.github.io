@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import Layout from "./Layout"
-import ReactMarkdown from "react-markdown"
-import imageURL from "../images/mahmoudsaada.jpg"
+import React from "react";
+import Layout from "./Layout";
+// import ReactMarkdown from "react-markdown"
+import imageURL from "../images/mahmoudsaada.jpg";
 
 const markdown = `
 Mahmoud Saada
@@ -34,10 +34,22 @@ Visualization tool for Docker container networks
 * [Github](https://github.com/saada)
 * [Twitter](https://twitter.com/saadazzz)
 * [LinkedIn](https://linkedin.com/in/msaada)
-`
+`;
+
+const Header = () => (
+  <div>
+    <h1 className="px-10 py-20 text-6xl text-teal-500">Mahmoud Saada</h1>,
+    <img className="mt-6 rounded-lg shadow-xl" src={imageURL}></img>,
+    <h1 className="mt-6 text-2xl text-gray-700 leading-tight font-bold">
+      Getting shit done
+    </h1>
+  </div>
+);
+
 const Home = () => (
   <Layout>
-    <ReactMarkdown source={markdown} />
+    <Header></Header>
+    {/* <ReactMarkdown source={markdown} /> */}
   </Layout>
-)
-export default Home
+);
+export default Home;

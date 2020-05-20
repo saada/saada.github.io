@@ -3,6 +3,7 @@
 My personal website
 
 ```sh
-parcel dev-index.html
-parcel build dev-index.html
+npm i
+npm run dev
+npm run build
 ```
