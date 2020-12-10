@@ -3,6 +3,7 @@ import Layout from "./Layout"
 import ReactMarkdown from "react-markdown"
 import landingURL from "../images/mahmoudsaada.jpg"
 import ckaURL from "../images/logo_cka.png"
+import ckadURL from "../images/logo_ckad.png"
 
 const markdown = `
 Mahmoud Saada
@@ -39,8 +40,9 @@ Visualization tool for Docker container networks
 
 # Certifications
 
-## Certified Kubernetes Administrator
+## CNCF
 ![cka](${ckaURL})
+![cka](${ckadURL})
 
 # Contact Me
 
