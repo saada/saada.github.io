@@ -1,8 +1,8 @@
 # saada.github.io
 
-My personal website
+My personal website for [saada.dev](saada.dev)
 
 ```sh
-parcel dev-index.html
-parcel build --no-content-hash --public-url=./ dev-index.html
+npx parcel dev-index.html
+npx parcel build --no-content-hash --public-url=./ dev-index.html
 ```
