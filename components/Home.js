@@ -13,11 +13,11 @@ Mahmoud Saada
 # Work Experience
 
 ## [Carta](https://carta.com)
-Senior Site Reliability Engineer II
+Senior Site Reliability Engineer I &rarr; Senior Site Reliability Engineer II
 > CartaX
 
 Senior Software Engineer II
-> Developer Experience
+> Carta Developer Experience
 
 ## [Weaveworks](https://weave.works)
 Customer Reliability Engineer
@@ -47,14 +47,13 @@ Visualization tool for Docker container networks
 
 # Certifications
 
-## CNCF
 ![cka](${ckaURL})
 ![cka](${ckadURL})
 
 # Games
 
-- [Catastrophe](playcatastrophe.com)
-- [splendid](splendid.games)
+- [Catastrophe](https://www.playcatastrophe.com)
+- [Splendid](https://splendid.games)
 
 # Contact Me
 
@@ -64,7 +63,7 @@ Visualization tool for Docker container networks
 `
 const Home = () => (
   <Layout>
-    <ReactMarkdown source={markdown} />
+    <ReactMarkdown>{markdown}</ReactMarkdown>
   </Layout>
 )
 export default Home
