@@ -5,6 +5,10 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "author": "Mahmoud Saada <mahmoudsaada@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "parcel build --no-content-hash --public-url=./ index.html",
+    "dev": "parcel index.html"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
