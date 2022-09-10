@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { render } from "react-dom"
+import { createRoot } from "react-dom/client"
 import Home from "./components/Home"
 
-render(<Home />, document.getElementById("react-container"))
+const root = createRoot(document.getElementById("react-container"))
+root.render(<Home />)
