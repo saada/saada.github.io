@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.3"
+    "react-markdown": "^8.0.3",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "2.7.0",
