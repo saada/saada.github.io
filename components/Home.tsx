@@ -62,6 +62,10 @@ Software Engineer &rarr; Tech Lead
 
 > Worked on an employee onboarding web app called StaffingNation that  assisted big TargetCW clients, such as Uber, to on-board their employees efficiently through a tailored paperless process. As a startup environment, I was in charge of everything from leading a team of engineers, to writing specifications, to coding across the stack, to building infrastructure, to designing architecture, to making most technical decisions and eventually maintaining it all.
 
+# Publications
+
+- [Using Automated Machine Learning to Predict the Mortality of Patients With COVID-19: Prediction Model Development Study](https://www.jmir.org/2021/2/e23458/)
+
 # Blog
 
 ## [Medium](https://medium.com/@saada)
@@ -81,7 +85,6 @@ ${posts || "loading posts..."}
 
 ## Gitops on AWS: Codifying CLoud Operations
 [![GitOps on AWS: Codifying cloud operations](https://img.youtube.com/vi/JRtrOc8CHug/0.jpg)](https://www.youtube.com/watch?v=JRtrOc8CHug)
-
 
 # Open Source
 
