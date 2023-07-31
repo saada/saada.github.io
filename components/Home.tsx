@@ -77,8 +77,8 @@ ${posts || "loading posts..."}
 ## Klustered - episode 13
 [![klustered](https://img.youtube.com/vi/akJCvD0ASmw/0.jpg)](https://www.youtube.com/watch?v=akJCvD0ASmw)
 
-## Uber Engineering: Distributed Tracing
-[![Uber Engineering: Distributed Tracing](https://img.youtube.com/vi/ZpUMpaWj0i8/0.jpg)](https://www.youtube.com/watch?v=ZpUMpaWj0i8)
+## Tracing a Kafka Pipeline (Uber Engineering - Distributed Tracing - NYC)
+[![Tracing a Kafka Pipeline](https://img.youtube.com/vi/ZpUMpaWj0i8/0.jpg)](https://www.youtube.com/watch?v=ZpUMpaWj0i8)
 
 ## Container Hive Demo
 [![Container Hive Demo](https://img.youtube.com/vi/DsBqEI_JHa0/0.jpg)](https://www.youtube.com/watch?v=DsBqEI_JHa0)
