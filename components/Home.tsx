@@ -83,7 +83,7 @@ ${posts || "loading posts..."}
 ## Container Hive Demo
 [![Container Hive Demo](https://img.youtube.com/vi/DsBqEI_JHa0/0.jpg)](https://www.youtube.com/watch?v=DsBqEI_JHa0)
 
-## Gitops on AWS: Codifying CLoud Operations
+## Gitops on AWS: Codifying Cloud Operations
 [![GitOps on AWS: Codifying cloud operations](https://img.youtube.com/vi/JRtrOc8CHug/0.jpg)](https://www.youtube.com/watch?v=JRtrOc8CHug)
 
 ## AWS MENA Community - Gitops on AWS: Codifying multi-cloud operations (Arabic)
