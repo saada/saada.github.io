@@ -86,8 +86,7 @@ ${posts || "loading posts..."}
 ## Gitops on AWS: Codifying Cloud Operations
 [![GitOps on AWS: Codifying cloud operations](https://img.youtube.com/vi/JRtrOc8CHug/0.jpg)](https://www.youtube.com/watch?v=JRtrOc8CHug)
 
-## AWS MENA Community - Gitops on AWS: Codifying multi-cloud operations (Arabic)
-![GitOps on AWS: Codifying multi-cloud operations](https://www.facebook.com/share/p/38EG6PP3mvrxZBMV/?mibextid=K35XfP)
+## [AWS MENA Community - Gitops on AWS: Codifying multi-cloud operations](https://www.facebook.com/share/p/38EG6PP3mvrxZBMV/) (Arabic)
 
 # Open Source
 
