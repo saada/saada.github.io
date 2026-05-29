@@ -6,21 +6,12 @@
   "author": "Mahmoud Saada <mahmoudsaada@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "parcel build --no-content-hash --public-url=./ index.html",
-    "dev": "parcel index.html"
+    "dev": "bun index.html",
+    "build": "bun build index.html --outdir=dist --minify"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.3",
-    "zod": "^3.21.4"
-  },
-  "devDependencies": {
-    "@parcel/packager-raw-url": "2.7.0",
-    "@parcel/transformer-webmanifest": "2.7.0",
-    "cssnano": "^5.1.13",
-    "node-sass": "^7.0.3",
-    "parcel": "^2.0.0",
-    "process": "^0.11.10"
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "zod": "^4.4.3"
   }
 }
