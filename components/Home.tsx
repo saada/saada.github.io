@@ -177,7 +177,7 @@ async function getPosts(): Promise<Post[]> {
   });
   posts.unshift({
     title:
-      "How Claude's Fable Model Saved My Gear and Got Me Excited About Playing Again",
+      "How Claude's Fable Model Saved My Gear and Got Me Excited About Playing Guitar Again",
     link: "/blog/fcb1010-biasfx2/",
     pubDate: "2026-07-19 00:00:00",
   });
