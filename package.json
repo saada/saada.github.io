@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "bun index.html",
-    "build": "bun build index.html --outdir=dist --minify"
+    "build": "bun build index.html --outdir=dist --minify && cp -r blog dist/"
   },
   "dependencies": {
     "react": "^19.2.6",
