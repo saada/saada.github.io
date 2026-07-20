@@ -1,0 +1,184 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Claude's Fable Model Saved My Gear and Got Me Excited About Playing Again</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Vollkorn:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap");
+:root {
+  --bg:#0f0f10; --surface:#17171a; --surface-2:#121214; --border:#2b2a2e;
+  --border-soft:#1f1e22; --text:#e9e2d6; --muted:#9b9488; --accent:#e0b366;
+  --link:#6fb7af; --tag:#d98a5c; --radius:14px;
+  --serif:"Vollkorn",Palatino,Georgia,serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+* { box-sizing:border-box }
+body {
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--serif); font-size:18px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+body::before {
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(60rem 40rem at 84% -12%, rgba(216,173,99,.07), transparent 60%),
+    radial-gradient(50rem 40rem at -5% 0%, rgba(111,183,175,.05), transparent 55%);
+}
+a { color:var(--link); text-decoration:none }
+a:hover { text-decoration:underline }
+.container { max-width:740px; margin:0 auto; padding:0 24px 80px }
+
+.terminal {
+  margin-top:56px; background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius); overflow:hidden;
+  box-shadow:0 30px 80px -40px rgba(0,0,0,.55);
+}
+.terminal__bar {
+  display:flex; align-items:center; gap:8px; padding:12px 16px;
+  background:var(--surface-2); border-bottom:1px solid var(--border);
+}
+.dot { width:12px; height:12px; border-radius:50% }
+.dot--r { background:#ff5f56 } .dot--y { background:#ffbd2e } .dot--g { background:#27c93f }
+.terminal__title { margin-left:8px; font-family:var(--mono); font-size:.74rem; color:var(--muted) }
+.terminal__body { padding:30px 30px 34px }
+.prompt { font-family:var(--mono); color:var(--muted); font-size:.85rem }
+.prompt::before { content:"$ "; color:var(--accent) }
+h1 {
+  margin:10px 0 6px; font-family:var(--serif);
+  font-size:clamp(1.9rem,4.6vw,2.6rem); font-weight:800; line-height:1.12;
+}
+.subtitle { color:var(--muted); font-style:italic; font-size:1.05rem }
+.cursor {
+  display:inline-block; width:.5ch; font-family:var(--mono); color:var(--accent);
+  font-style:normal; animation:blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity:0 } }
+
+article { margin-top:48px }
+article h2 {
+  font-family:var(--mono); font-size:1.12rem; font-weight:700;
+  margin:56px 0 18px; letter-spacing:-.01em;
+}
+article h2::before { content:"## "; color:var(--accent) }
+article p { margin:0 0 1.15em }
+article strong { color:var(--text) }
+article em { color:inherit }
+article ol, article ul { padding-left:1.4em; margin:0 0 1.15em }
+article li { margin-bottom:.45em }
+article img {
+  max-width:100%; border-radius:var(--radius);
+  border:1px solid var(--border); display:block; margin:26px auto 10px;
+}
+.caption {
+  font-family:var(--mono); font-size:.76rem; color:var(--muted);
+  text-align:center; margin:0 0 26px;
+}
+.caption a { color:var(--muted); text-decoration:underline }
+pre {
+  background:var(--surface-2); border:1px solid var(--border-soft);
+  border-radius:10px; padding:16px 18px; overflow-x:auto; margin:0 0 1.15em;
+}
+code { font-family:var(--mono); font-size:.8em; color:var(--accent) }
+pre code { color:var(--text); font-size:.78rem; line-height:1.55 }
+blockquote {
+  margin:0 0 1.15em; padding:2px 0 2px 18px;
+  border-left:3px solid var(--accent); color:var(--muted);
+}
+footer {
+  margin-top:72px; padding-top:24px; border-top:1px solid var(--border);
+  font-family:var(--mono); font-size:.78rem; color:var(--muted);
+  display:flex; flex-wrap:wrap; gap:8px 20px;
+}
+footer a { color:var(--muted) }
+footer a:hover { color:var(--accent) }
+</style></head>
+<body>
+<div class="container">
+  <header class="terminal">
+    <div class="terminal__bar">
+      <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+      <span class="terminal__title">mahmoud@saada: ~/blog</span>
+    </div>
+    <div class="terminal__body">
+      <div class="prompt">cat fcb1010-biasfx2.md</div>
+      <h1>How Claude's Fable Model Saved My Gear and Got Me Excited About Playing Again</h1>
+      <div class="subtitle">The MIDI pedalboard that collected dust for years finally gave up last weekend. I've been galloping through Iron Maiden ever since.<span class="cursor">▋</span></div>
+    </div>
+  </header>
+  <article>
+<p>We all have that one piece of gear. Mine was a Behringer FCB1010, a two-foot slab of MIDI pedalboard that has followed me through three apartments and never actually worked. Not once, not properly. Every couple of years I'd drag it out, lose an evening to MIDI menus, get maybe two switches doing something useful, and put it back under the desk to collect dust and silently judge me.</p>
+<p><img alt="A guitar and an FCB1010, ready to disappoint" src="images/rig-photo.png" />
+<em>Not my room, but this is exactly what the setup looks like: guitar, hope, and ten switches that do the wrong thing. (photo: <a href="https://www.scuffhamamps.com/forum/s-gear-rigs-controllers/9099-behringer-fcb1010">Scuffham Amps forum</a>)</em></p>
+<p>The dream was always simple: stomp a switch, get the Comfortably Numb solo tone. Stomp another, Purple Rain cleans. Rock the expression pedal, wah. And the real dream, the one that kept me dragging this thing back out: playing my Iron Maiden repertoire properly. Seventh Son harmonies, The Wicker Man gallop, both Murray <em>and</em> Smith parts coming out of one guitar, hands never leaving the strings. The reality was a pedalboard from 2004 and an amp sim from this decade, BIAS FX 2, that flatly refuse to understand each other out of the box.</p>
+<p>Skill issues? Sure. But gosh, are these two complicated to wire together.</p>
+<h2>Why everyone gives up on the FCB1010</h2>
+<p><img alt="The Behringer FCB1010" src="images/fcb1010-product.jpg" />
+<em>Ten switches, two expression pedals, one two-digit display, infinite menu-diving. (photo: <a href="https://www.sweetwater.com/store/detail/FCB1010--behringer-midi-foot-controller-fcb1010">Sweetwater</a>)</em></p>
+<p>Press one switch on a factory-fresh FCB1010 and it doesn't send a MIDI message. It sends <strong>seven</strong>: five Program Changes and two Control Changes, on multiple channels, all at once. BIAS FX 2's MIDI Learn dutifully grabs whichever of the seven arrives first. Congratulations: your delay toggle is now mapped to garbage.</p>
+<p>The official fix is programming each footswitch from the front panel. The procedure involves holding the DOWN pedal for exactly 2.5 seconds, navigating menus rendered on a two-digit LED display, entering numbers by stepping on footswitches (10 means zero, obviously), and confirming with UP. Per value. Per slot. Per preset. My layout needed 26 presets. I did the math on that foot-dance and understood why this thing lived under the desk.</p>
+<h2>SysEx, my old friend</h2>
+<p>But the FCB1010's entire brain is 2,352 bytes. One SysEx dump. The format was reverse-engineered years ago, and there's a lovely little MIT-licensed Python library (<a href="https://github.com/riban-bw/fcb1010">riban-bw/fcb1010</a>) that encodes and decodes the whole memory.</p>
+<p>Which means the entire pedalboard can be described as data:</p>
+<pre><code class="language-python">SONGS = [
+    (0, 1, 0, &quot;Comfortably Numb&quot;),
+    (0, 2, 1, &quot;Purple Rain&quot;),
+    ...
+    (2, 1, 10, &quot;Iron Maiden&quot;),
+]
+TOGGLES = [
+    (6, 20, &quot;Wah on/off&quot;),
+    (7, 21, &quot;Octaver/Harmonizer&quot;),
+    (8, 22, &quot;Delay&quot;),
+    (9, 23, &quot;Distortion/Boost&quot;),
+    (10, 24, &quot;Tuner&quot;),
+]
+</code></pre>
+<p>Edit the table, run <code>uv run rig.py send</code>, done. No foot-dance. The script round-trips the generated dump through the decoder before it ever touches hardware, so a typo can't brick anything.</p>
+<p>Getting the upload to actually land taught me three things the manual buries:</p>
+<ol>
+<li>In global config mode you <strong>tap</strong> UP to change pages. Holding it does nothing. I held it for a very long time.</li>
+<li>After the transfer, you must hold DOWN to <em>save</em>. Skip it and the pedal politely discards everything. I skipped it. Twice.</li>
+<li>Cheap USB-MIDI cables are pathological liars. <a href="https://www.amazon.com/dp/B0F9DVH9MM">Mine</a> passes normal 3-byte MIDI perfectly, then silently eats SysEx, and only in one direction. Pedal-to-Mac dumps vanish into the void; Mac-to-pedal uploads work fine. A MIDI monitor showing traffic proves nothing about SysEx. The only real test is counting bytes.</li>
+</ol>
+<h2>BIAS FX 2 has no API. It has something better.</h2>
+<p>The other half of the problem: BIAS FX 2 has no scripting interface, no import format, no automation story at all. What it does have is a data directory full of plain JSON, and nobody stopping you from reading it.</p>
+<p>A few evenings of spelunking later, the whole map:</p>
+<ul>
+<li><code>midi.json</code>: global mappings. Maps Program Change numbers to preset UUIDs, plus app-level actions like the tuner (<code>utility.tuner</code>).</li>
+<li><code>GlobalPresets/&lt;bank&gt;/preset.json</code>: the bank's index. Fun fact: a preset folder that isn't listed here <strong>does not exist</strong> as far as the app is concerned. Found that one the hard way.</li>
+<li><code>GlobalPresets/&lt;bank&gt;/&lt;preset&gt;/data.json</code>: the full signal chain, every pedal with a stable UUID.</li>
+<li><code>GlobalPresets/&lt;bank&gt;/&lt;preset&gt;/midi.json</code>: per-pedal CC wiring, referencing those UUIDs.</li>
+</ul>
+<p>The scary part was signal-chain surgery. Confession: in all the years I've owned this pedalboard, I have <strong>never</strong>, not once, had the wah pedal, octaver, volume pedal, and tuner all working from the floor at the same time. That was the whole dream, and it died in MIDI Learn purgatory every single attempt. This time I wanted all four in <em>every</em> preset, and I was not going to click through fifteen presets to add them. Editing a 340KB JSON file with embedded scene state sounds like a great way to corrupt your tone library. Then you notice that scene snapshots reference pedals by UUID, not by position. Insert a new module with a fresh UUID, append matching snapshot entries to each scene, and everything stays consistent. The app never notices a human didn't do it.</p>
+<p>So now one script builds a dedicated "FCB1010" bank with all fifteen presets in PC order, wires every footswitch CC to the right pedal in every preset, and inserts any missing pedals. It's idempotent. Run it twice, nothing duplicates.</p>
+<p><img alt="BIAS FX 2 showing the Dream Theater preset" src="images/biasfx2.png" />
+<em>The Dream Theater preset: dual Boogies. That octaver at the front of the chain was inserted by a script editing JSON. The app has no idea.</em></p>
+<h2>The rig</h2>
+<p>Three banks on the floor:</p>
+<ul>
+<li><strong>Bank 0:</strong> Comfortably Numb, Purple Rain, Tornado of Souls, Dream Theater, Slipknot</li>
+<li><strong>Bank 1:</strong> Djent, Radiohead, Oasis, Nirvana, Foo Fighters</li>
+<li><strong>Bank 2:</strong> Iron Maiden, plus four clean tones</li>
+</ul>
+<p>Every bank keeps the same bottom row: wah, octaver, delay, distortion, tuner. Expression pedal A sweeps the wah, pedal B rides volume. Muscle memory works everywhere because the layout never changes.</p>
+<p><img alt="Full FCB1010 mapping, all three banks, every switch" src="images/pedal-map.png" />
+<em>The whole rig on one map: every switch, every message, all three banks.</em></p>
+<p>Stomp switch 1: Gilmour. Stomp 4 on bank 1: Nevermind. It has worked every single time since, which for this pedalboard is a personal record.</p>
+<p><img alt="Sterling by Music Man JP70, Stealth Black" src="images/jp70.jpg" />
+<em>The guitar on the other end of all this: my <a href="https://www.guitarcenter.com/Sterling-by-Music-Man/John-Petrucci-JP70-7-String-Electric-Guitar-Stealth-Black-1358268440958.gc">Sterling by Music Man John Petrucci JP70</a>. Seven strings, stealth black, equally happy playing Petrucci or pretending to be two Iron Maidens at once.</em></p>
+<p>But bank 2, switch 1. That's the one. JCM-style crunch, and on switch 7 sits a harmonizer wired for 3rds. I hit it, played the lead from The Evil That Men Do, and both harmony parts came out of my JP70 at once. I am not exaggerating when I say I stood in my living room grinning like an idiot. Twenty minutes later I had galloped through half of Seventh Son of a Seventh Son, kicked the wah on for a solo without thinking about MIDI even once, and ridden the volume pedal into the Moonchild intro like the last several years of dust never happened. This is what the pedalboard was <em>for</em>. I'd just never met it before.</p>
+<h2>We did it</h2>
+<p>Hardware I'd written off for years now does exactly what I always wanted, because both ends turned out to be automatable: one through a 20-year-old SysEx format, the other through JSON files nobody documents.</p>
+<p>Credit where it's due: I did this whole thing pair-programming with Claude Fable, and it's the reason this post exists. I had thrown earlier AI models at this exact problem before and they'd confidently hallucinate SysEx byte layouts or tell me to "check the manual." Fable actually reverse-engineered the BIAS FX 2 file formats from my own preset library, caught its own landmines (like the bank index that makes presets invisible, or my wah stomp being globally mapped to "previous preset"), diagnosed a counterfeit MIDI cable from packet captures, and generated entire preset banks as code, both the FCB1010's memory and the BIAS FX 2 bank. Wah, octaver, volume pedal, tuner: all four working from the floor, for the first time ever, wired by a language model doing surgery on JSON files. Wild time to be alive.</p>
+<p>The part I didn't expect: I'm <em>playing</em> again. Not configuring, not troubleshooting, not watching MIDI monitors. Playing. I walk past the desk, see the pedalboard, and instead of guilt I feel the pull of an unfinished Maiden setlist. That feeling was worth more than the automation.</p>
+<p>The whole thing is open source: <strong><a href="https://github.com/saada/fcb1010-biasfx2">github.com/saada/fcb1010-biasfx2</a></strong>. Two single-file uv scripts, no install, tables at the top. If you have an FCB1010 gathering dust (statistically, someone reading this does), fork it, edit two tables, and go play The Trooper.</p>
+<h2>What's next</h2>
+<p>CLI commands and Python tables were the right tool for getting here, but they're still developer UX for what is fundamentally a musician's problem. The plan is a full TUI for configuring the FCB1010. Draw the pedalboard in the terminal, arrow-key around the ten switches, assign a preset or a CC to each one visually, watch incoming MIDI light up the switch you just stomped, then hit one key to upload. Same SysEx engine underneath, none of the table editing. If that sounds like something you'd use, star the repo. That's where the TUI will land.</p>
+  </article>
+  <footer>
+    <span>Mahmoud Saada</span>
+    <a href="https://saada.dev">saada.dev</a>
+    <a href="https://github.com/saada/fcb1010-biasfx2">github.com/saada/fcb1010-biasfx2</a>
+  </footer>
+</div>
+</body></html>
