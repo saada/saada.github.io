@@ -82,6 +82,11 @@ article img {
   max-width:100%; border-radius:var(--radius);
   border:1px solid var(--border); display:block; margin:26px auto 10px;
 }
+.video { aspect-ratio:16/9; margin:26px auto 10px }
+.video iframe {
+  width:100%; height:100%; border:1px solid var(--border);
+  border-radius:var(--radius); display:block;
+}
 .caption {
   font-family:var(--mono); font-size:.76rem; color:var(--muted);
   text-align:center; margin:0 0 26px;
@@ -181,6 +186,10 @@ TOGGLES = [
 <p><img alt="Sterling by Music Man JP70, Stealth Black" src="images/jp70.jpg" />
 <em>The guitar on the other end of all this: my <a href="https://www.guitarcenter.com/Sterling-by-Music-Man/John-Petrucci-JP70-7-String-Electric-Guitar-Stealth-Black-1358268440958.gc">Sterling by Music Man John Petrucci JP70</a>. Seven strings, stealth black, equally happy playing Petrucci or pretending to be two Iron Maidens at once.</em></p>
 <p>But bank 2, switch 1. That's the one. JCM-style crunch, and on switch 7 sits a harmonizer wired for 3rds. I hit it, played the lead from The Evil That Men Do, and BOOM: both harmony parts came out of my JP70 at once. I am not exaggerating when I say I stood in my living room grinning like an idiot. Twenty minutes later I had galloped through half of Seventh Son of a Seventh Son, kicked the wah on for a solo without thinking about MIDI even once, and ridden the volume pedal into the Moonchild intro like the last several years of dust never happened. This is what the pedalboard was <em>for</em>. I'd just never met it before.</p>
+<p>Don't take my word for it:</p>
+<div class="video"><iframe src="https://www.youtube.com/embed/s_p3G5btYIQ" title="The Evil That Men Do on the FCB1010 + BIAS FX 2 rig" loading="lazy" allowfullscreen></iframe></div>
+
+<p class="caption"><em>The Evil That Men Do, live from the living room: FCB1010 bottom right, BIAS FX 2 top right.</em></p>
 <h2>We did it</h2>
 <p>Hardware I'd written off for years now does exactly what I always wanted, because both ends turned out to be automatable: one through a 20-year-old SysEx format, the other through JSON files nobody documents.</p>
 <p>Credit where it's due: I did this whole thing pair-programming with Claude Fable, and it's the reason this post exists. I had thrown earlier AI models at this exact problem before and they'd confidently hallucinate SysEx byte layouts or tell me to "check the manual." Fable actually reverse-engineered the BIAS FX 2 file formats from my own preset library, caught its own landmines (like the bank index that makes presets invisible, or my wah stomp being globally mapped to "previous preset"), diagnosed a counterfeit MIDI cable from packet captures, and generated entire preset banks as code, both the FCB1010's memory and the BIAS FX 2 bank. Wah, octaver, volume pedal, tuner: all four working from the floor, for the first time ever, wired by a language model doing surgery on JSON files. Wild time to be alive.</p>
