@@ -217,7 +217,7 @@ const Hero = () => (
 );
 
 const Section = ({ title, children, className = "" }) => (
-  <section className="section">
+  <section className="section" id={title.replace(/\s+/g, "-")}>
     <h2 className="section__title">{title}</h2>
     <div className={className}>{children}</div>
   </section>

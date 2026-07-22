@@ -1,21 +1,80 @@
 <!doctype html>
-<html><head>
+<html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How Claude's Fable Model Saved My Gear and Got Me Excited About Playing Guitar Again</title>
 <meta name="description" content="The MIDI pedalboard that collected dust for years finally gave up last weekend. I've been galloping through Iron Maiden ever since.">
+<meta name="author" content="Mahmoud Saada">
+<meta name="keywords" content="FCB1010, BIAS FX 2, MIDI, SysEx, guitar rig, pedalboard automation, Behringer, Iron Maiden, Claude Fable, reverse engineering, Python, uv">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://saada.github.io/blog/fcb1010-biasfx2/">
+<meta name="theme-color" content="#0f0f10">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Mahmoud Saada">
 <meta property="og:title" content="How Claude's Fable Model Saved My Gear and Got Me Excited About Playing Guitar Again">
 <meta property="og:description" content="The MIDI pedalboard that collected dust for years finally gave up last weekend. I've been galloping through Iron Maiden ever since.">
 <meta property="og:url" content="https://saada.github.io/blog/fcb1010-biasfx2/">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://saada.github.io/blog/fcb1010-biasfx2/images/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Automating a Behringer FCB1010 and BIAS FX 2 guitar rig with code">
+<meta property="article:published_time" content="2026-07-19T00:00:00Z">
+<meta property="article:author" content="Mahmoud Saada">
+<meta property="article:section" content="Engineering">
+<meta property="article:tag" content="MIDI">
+<meta property="article:tag" content="Automation">
+<meta property="article:tag" content="Reverse Engineering">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@saadazzz">
+<meta name="twitter:creator" content="@saadazzz">
 <meta name="twitter:title" content="How Claude's Fable Model Saved My Gear and Got Me Excited About Playing Guitar Again">
 <meta name="twitter:description" content="The MIDI pedalboard that collected dust for years finally gave up last weekend. I've been galloping through Iron Maiden ever since.">
 <meta name="twitter:image" content="https://saada.github.io/blog/fcb1010-biasfx2/images/og-card.png">
+<meta name="twitter:image:alt" content="Automating a Behringer FCB1010 and BIAS FX 2 guitar rig with code">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://saada.github.io/blog/fcb1010-biasfx2/"
+  },
+  "headline": "How Claude's Fable Model Saved My Gear and Got Me Excited About Playing Guitar Again",
+  "description": "The MIDI pedalboard that collected dust for years finally gave up last weekend. I've been galloping through Iron Maiden ever since.",
+  "image": "https://saada.github.io/blog/fcb1010-biasfx2/images/og-card.png",
+  "datePublished": "2026-07-19T00:00:00Z",
+  "dateModified": "2026-07-19T00:00:00Z",
+  "inLanguage": "en",
+  "keywords": "FCB1010, BIAS FX 2, MIDI, SysEx, pedalboard automation, reverse engineering",
+  "author": {
+    "@type": "Person",
+    "name": "Mahmoud Saada",
+    "url": "https://saada.github.io/",
+    "sameAs": [
+      "https://github.com/saada",
+      "https://twitter.com/saadazzz",
+      "https://linkedin.com/in/msaada"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Mahmoud Saada",
+    "url": "https://saada.github.io/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saada.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://saada.github.io/#writing" },
+    { "@type": "ListItem", "position": 3, "name": "How Claude's Fable Model Saved My Gear", "item": "https://saada.github.io/blog/fcb1010-biasfx2/" }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Vollkorn:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap");
@@ -125,13 +184,13 @@ footer a:hover { color:var(--accent) }
   </header>
   <article>
 <p>We all have that one piece of gear. Mine was a Behringer FCB1010, a two-foot slab of MIDI pedalboard that has followed me through three apartments and never actually worked. Not once, not properly. Every couple of years I'd drag it out, lose an evening to MIDI menus, get maybe two switches doing something useful, and put it back under the desk to collect dust and silently judge me.</p>
-<p><img alt="A guitar and an FCB1010, ready to disappoint" src="images/rig-photo.png" />
+<p><img alt="A guitar and an FCB1010, ready to disappoint" src="images/rig-photo.png" width="675" height="900" loading="lazy" decoding="async" />
 <em>Not my room, but this is exactly what the setup looks like: guitar, hope, and ten switches that do the wrong thing. (photo: <a href="https://www.scuffhamamps.com/forum/s-gear-rigs-controllers/9099-behringer-fcb1010">Scuffham Amps forum</a>)</em></p>
 <p>The dream was always simple: stomp a switch, get the Comfortably Numb solo tone. Stomp another, Purple Rain cleans. Rock the expression pedal, wah. And the real dream, the one that kept me dragging this thing back out: playing my Iron Maiden repertoire properly. Seventh Son harmonies, The Wicker Man gallop, both Murray <em>and</em> Smith parts coming out of one guitar, hands never leaving the strings. The reality was a pedalboard from 2004 and an amp sim from this decade, BIAS FX 2, that flatly refuse to understand each other out of the box.</p>
 <p>Skill issues? Sure. But gosh, are these two complicated to wire together.</p>
 <h2>Why everyone gives up on the FCB1010</h2>
 <p>Hey FCB1010, we need to talk.</p>
-<p><img alt="The Behringer FCB1010" src="images/fcb1010-product.jpg" />
+<p><img alt="The Behringer FCB1010 MIDI foot controller" src="images/fcb1010-product.jpg" width="1200" height="409" loading="lazy" decoding="async" />
 <em>Ten switches, two expression pedals, one two-digit display, infinite menu-diving. (photo: <a href="https://www.sweetwater.com/store/detail/FCB1010--behringer-midi-foot-controller-fcb1010">Sweetwater</a>)</em></p>
 <p>Press one switch on a factory-fresh FCB1010 and it doesn't send a MIDI message. It sends <strong>seven</strong>: five Program Changes and two Control Changes, on multiple channels, all at once. BIAS FX 2's MIDI Learn dutifully grabs whichever of the seven arrives first. Congratulations: your delay toggle is now mapped to garbage.</p>
 <p>The official fix is programming each footswitch from the front panel. The procedure involves holding the DOWN pedal for exactly 2.5 seconds, navigating menus rendered on a two-digit LED display, entering numbers by stepping on footswitches (10 means zero, obviously), and confirming with UP. Per value. Per slot. Per preset. My layout needed 26 presets. I did the math on that foot-dance and understood why this thing lived under the desk.</p>
@@ -170,7 +229,7 @@ TOGGLES = [
 </ul>
 <p>The scary part was signal-chain surgery. Confession: in all the years I've owned this pedalboard, I have <strong>never</strong>, not once, had the wah pedal, octaver, volume pedal, and tuner all working from the floor at the same time. That was the whole dream, and it died in MIDI Learn purgatory every single attempt. This time I wanted all four in <em>every</em> preset, and I was not going to click through fifteen presets to add them. Editing a 340KB JSON file with embedded scene state sounds like a great way to corrupt your tone library. Then you notice that scene snapshots reference pedals by UUID, not by position. Insert a new module with a fresh UUID, append matching snapshot entries to each scene, and everything stays consistent. The app never notices a human didn't do it.</p>
 <p>So now one script builds a dedicated "FCB1010" bank with all fifteen presets in PC order, wires every footswitch CC to the right pedal in every preset, and inserts any missing pedals. It's idempotent. Run it twice, nothing duplicates.</p>
-<p><img alt="BIAS FX 2 showing the Dream Theater preset" src="images/biasfx2.png" />
+<p><img alt="BIAS FX 2 showing the Dream Theater preset with dual Boogie amps" src="images/biasfx2.png" width="2422" height="1920" loading="lazy" decoding="async" />
 <em>The Dream Theater preset: dual Boogies. That octaver at the front of the chain was inserted by a script editing JSON. The app has no idea.</em></p>
 <h2>The rig</h2>
 <p>Three banks on the floor:</p>
@@ -180,10 +239,10 @@ TOGGLES = [
 <li><strong>Bank 2:</strong> Iron Maiden, plus four clean tones</li>
 </ul>
 <p>Every bank keeps the same bottom row: wah, octaver, delay, distortion, tuner. Expression pedal A sweeps the wah, pedal B rides volume. Muscle memory works everywhere because the layout never changes.</p>
-<p><img alt="Full FCB1010 mapping, all three banks, every switch" src="images/pedal-map.png" />
+<p><img alt="Full FCB1010 mapping, all three banks, every switch" src="images/pedal-map.png" width="1680" height="2230" loading="lazy" decoding="async" />
 <em>The whole rig on one map: every switch, every message, all three banks.</em></p>
 <p>Stomp switch 1: Gilmour. Stomp 4 on bank 1: Nevermind. It has worked every single time since, which for this pedalboard is a personal record.</p>
-<p><img alt="Sterling by Music Man JP70, Stealth Black" src="images/jp70.jpg" />
+<p><img alt="Sterling by Music Man John Petrucci JP70 seven-string guitar, Stealth Black" src="images/jp70.jpg" width="2000" height="2000" loading="lazy" decoding="async" />
 <em>The guitar on the other end of all this: my <a href="https://www.guitarcenter.com/Sterling-by-Music-Man/John-Petrucci-JP70-7-String-Electric-Guitar-Stealth-Black-1358268440958.gc">Sterling by Music Man John Petrucci JP70</a>. Seven strings, stealth black, equally happy playing Petrucci or pretending to be two Iron Maidens at once.</em></p>
 <p>But bank 2, switch 1. That's the one. JCM-style crunch, and on switch 7 sits a harmonizer wired for 3rds. I hit it, played the lead from The Evil That Men Do, and BOOM: both harmony parts came out of my JP70 at once. I am not exaggerating when I say I stood in my living room grinning like an idiot. Twenty minutes later I had galloped through half of Seventh Son of a Seventh Son, kicked the wah on for a solo without thinking about MIDI even once, and ridden the volume pedal into the Moonchild intro like the last several years of dust never happened. This is what the pedalboard was <em>for</em>. I'd just never met it before.</p>
 <p>Don't take my word for it:</p>
