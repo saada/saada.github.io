@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://saada.github.io/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://saada.github.io/og-home.png</image:loc>
+      <image:title>Mahmoud Saada — Lead Developer Experience Engineer at Carta</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://saada.github.io/blog/fcb1010-biasfx2/</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://saada.github.io/blog/fcb1010-biasfx2/images/og-card.png</image:loc>
+      <image:title>How Claude's Fable Model Saved My Gear and Got Me Excited About Playing Guitar Again</image:title>
+    </image:image>
+  </url>
+</urlset>
