@@ -183,7 +183,7 @@ async function getPosts(): Promise<Post[]> {
   });
   posts.push({
     title:
-      "Fifteen Legendary Rigs, Seven Maiden Eras, One Floorboard: My Guitar Rig on Linux",
+      "From Wine to GuitarMood: A Free, Native Linux Guitar Rig Anyone Can Run",
     link: "/blog/tone3000-linux-rig/",
     pubDate: "2026-09-26 00:00:00",
   });
