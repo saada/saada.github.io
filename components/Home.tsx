@@ -183,7 +183,7 @@ async function getPosts(): Promise<Post[]> {
   });
   posts.push({
     title:
-      "Fifteen Legendary Rigs, One Floorboard, Zero Xruns: My Guitar Rig on Linux with TONE3000",
+      "Fifteen Legendary Rigs, Seven Maiden Eras, One Floorboard: My Guitar Rig on Linux",
     link: "/blog/tone3000-linux-rig/",
     pubDate: "2026-09-26 00:00:00",
   });
