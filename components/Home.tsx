@@ -181,6 +181,12 @@ async function getPosts(): Promise<Post[]> {
     link: "/blog/fcb1010-biasfx2/",
     pubDate: "2026-07-19 00:00:00",
   });
+  posts.push({
+    title:
+      "From Wine to GuitarMood: A Free, Native Linux Guitar Rig Anyone Can Run",
+    link: "/blog/tone3000-linux-rig/",
+    pubDate: "2026-09-26 00:00:00",
+  });
   posts.sort((a, b) => b.pubDate.localeCompare(a.pubDate));
   return posts;
 }
