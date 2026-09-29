@@ -1,0 +1,10 @@
+{
+  "headline": "My dusty pedalboard, <em>alive again</em>",
+  "kicker": "Claude's Fable model rewired an FCB1010 + BIAS FX 2 rig",
+  "tags": ["FCB1010", "BIAS FX 2", "Claude"],
+  "image": "images/rig-photo.png",
+  "focus": "50% 70%",
+  "accent": "#e0af68",
+  "imageWidth": 560,
+  "headlinePx": 66
+}

@@ -183,7 +183,7 @@ async function getPosts(): Promise<Post[]> {
   });
   posts.push({
     title:
-      "From Wine to GuitarMood: A Free, Native Linux Guitar Rig Anyone Can Run",
+      "An AI Agent Built My Entire Guitar Rig on Omarchy, So I Just Play",
     link: "/blog/tone3000-linux-rig/",
     pubDate: "2026-09-26 00:00:00",
   });

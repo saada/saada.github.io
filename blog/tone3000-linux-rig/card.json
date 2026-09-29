@@ -1,0 +1,17 @@
+{
+  "headline": "An agent built my <em>rig</em>",
+  "kicker": "Omarchy + Claude Opus 5.5 · I just play",
+  "tags": [
+    "Omarchy",
+    "AI-native",
+    "Open source",
+    "Iron Maiden"
+  ],
+  "image": "images/card-hero.jpg",
+  "focus": "0% 50%",
+  "accent": "#7aa2f7",
+  "imageWidth": 600,
+  "headlinePx": 62,
+  "fade": 12,
+  "brightness": 1.25
+}
