@@ -80,12 +80,15 @@ function render(slug: string) {
   console.log(`${slug}: images/og-card.png (${hash(out)})`);
 }
 
-/** The post's page plus any sub-pages (e.g. blog/<slug>/lab/) that share its card. */
+/** The post's page plus any sub-pages (e.g. blog/<slug>/lab/) that share its card. A sub-page
+ *  with no og:image of its own (a redirect, say) isn't shared, so it's skipped. */
 function pages(slug: string): string[] {
   const dir = join(BLOG, slug);
   const out = [join(dir, "index.html")];
-  for (const d of readdirSync(dir, { withFileTypes: true }))
-    if (d.isDirectory() && existsSync(join(dir, d.name, "index.html"))) out.push(join(dir, d.name, "index.html"));
+  for (const d of readdirSync(dir, { withFileTypes: true })) {
+    const sub = join(dir, d.name, "index.html");
+    if (d.isDirectory() && existsSync(sub) && /(?:name|property)="og:image"/.test(readFileSync(sub, "utf8"))) out.push(sub);
+  }
   return out;
 }
 
