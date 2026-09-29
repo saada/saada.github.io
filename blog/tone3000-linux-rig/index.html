@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>From Wine to GuitarMood: A Free, Native Linux Guitar Rig Anyone Can Run</title>
-<meta name="description" content="Part two: my FCB1010 now drives a free, open-source guitar rig on Omarchy. Seven eras of Iron Maiden, and GuitarMood, an app that is the pedalboard: open it to play, close it to stop.">
+<meta name="description" content="Part two: on AI-first Omarchy, an agent built my whole guitar rig, from neural amp tones to GuitarMood, the app that is my pedalboard. Free, open source, no setup left. Now I just practice.">
 <meta name="author" content="Mahmoud Saada">
 <meta name="keywords" content="GuitarMood, Omarchy, Hyprland, TONE3000, Neural Amp Modeler, NAM, Qtractor, Iron Maiden, Fretwise, FCB1010, Linux guitar, open source, PipeWire, Qt, PySide6">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -12,10 +12,10 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Mahmoud Saada">
 <meta property="og:title" content="From Wine to GuitarMood: A Free, Native Linux Guitar Rig Anyone Can Run">
-<meta property="og:description" content="Part two: my FCB1010 now drives a free, open-source guitar rig on Omarchy. Seven eras of Iron Maiden, and GuitarMood, an app that is the pedalboard: open it to play, close it to stop.">
+<meta property="og:description" content="Part two: on AI-first Omarchy, an agent built my whole guitar rig, from neural amp tones to GuitarMood, the app that is my pedalboard. Free, open source, no setup left. Now I just practice.">
 <meta property="og:url" content="https://saada.github.io/blog/tone3000-linux-rig/">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://saada.github.io/blog/tone3000-linux-rig/images/og-card.png?v=008c1c9fc7">
+<meta property="og:image" content="https://saada.github.io/blog/tone3000-linux-rig/images/og-card.png?v=e06c1ebc09">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="GuitarMood, a free guitar rig app for Omarchy: the FCB1010 pedalboard live on screen, bank 3, RHYTHM lit">
@@ -30,8 +30,8 @@
 <meta name="twitter:site" content="@saadazzz">
 <meta name="twitter:creator" content="@saadazzz">
 <meta name="twitter:title" content="From Wine to GuitarMood: A Free, Native Linux Guitar Rig Anyone Can Run">
-<meta name="twitter:description" content="Part two: my FCB1010 now drives a free, open-source guitar rig on Omarchy. Seven eras of Iron Maiden, and GuitarMood, an app that is the pedalboard: open it to play, close it to stop.">
-<meta name="twitter:image" content="https://saada.github.io/blog/tone3000-linux-rig/images/og-card.png?v=008c1c9fc7">
+<meta name="twitter:description" content="Part two: on AI-first Omarchy, an agent built my whole guitar rig, from neural amp tones to GuitarMood, the app that is my pedalboard. Free, open source, no setup left. Now I just practice.">
+<meta name="twitter:image" content="https://saada.github.io/blog/tone3000-linux-rig/images/og-card.png?v=e06c1ebc09">
 <meta name="twitter:image:alt" content="GuitarMood, a free guitar rig app for Omarchy: the FCB1010 pedalboard live on screen, bank 3, RHYTHM lit">
 <script type="application/ld+json">
 {
@@ -39,7 +39,7 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://saada.github.io/blog/tone3000-linux-rig/" },
   "headline": "From Wine to GuitarMood: A Free, Native Linux Guitar Rig Anyone Can Run",
-  "description": "Part two: my FCB1010 now drives a free, open-source guitar rig on Omarchy. Seven eras of Iron Maiden, and GuitarMood, an app that is the pedalboard: open it to play, close it to stop.",
+  "description": "Part two: on AI-first Omarchy, an agent built my whole guitar rig, from neural amp tones to GuitarMood, the app that is my pedalboard. Free, open source, no setup left. Now I just practice.",
   "image": "https://saada.github.io/blog/tone3000-linux-rig/images/og-card.png",
   "datePublished": "2026-09-26T00:00:00Z",
   "dateModified": "2026-09-27T00:00:00Z",
@@ -370,7 +370,7 @@ table.licenses .muted { display:block; font-size:.68rem }
     <div class="terminal__body">
       <div class="prompt">cat tone3000-linux-rig.md</div>
       <h1>From Wine to GuitarMood: A Free, Native Linux Guitar Rig Anyone Can Run</h1>
-      <div class="subtitle">Part two: my FCB1010 now drives a free, open-source guitar rig on Omarchy. Seven eras of Iron Maiden, and GuitarMood, an app that is the pedalboard: open it to play, close it to stop.<span class="cursor">▋</span></div>
+      <div class="subtitle">Part two: on AI-first Omarchy, an agent built my whole guitar rig, from neural amp tones to GuitarMood, the app that is my pedalboard. Free, open source, no setup left. Now I just practice.<span class="cursor">▋</span></div>
     </div>
   </header>
   <article>
@@ -386,13 +386,13 @@ table.licenses .muted { display:block; font-size:.68rem }
 
 <div class="callout tldr">
 <div class="callout__title">TL;DR</div>
-<p>Last time, my FCB1010 finally drove BIAS FX 2. Now it drives a guitar rig that runs natively on Linux, where every piece of software is free and open source. <strong>GuitarMood</strong> is its face: open it from the Omarchy launcher and the whole rig starts; the window <em>is</em> the pedalboard, live and two-way; close it and everything saves and shuts down. It tiles, it autoscales, and it wears your Omarchy theme.</p>
+<p>Last time, my FCB1010 finally drove BIAS FX 2. Now it drives a guitar rig that's AI-native end to end, on <a href="https://omarchy.org">Omarchy</a>. The tone is neural: amp models learned from real gear. The rig was built by an agent: Claude Code running Claude Opus 5.5 wrote every piece, down to <strong>GuitarMood</strong>, the app that <em>is</em> my pedalboard. And there's no setup left to think about: open GuitarMood, stomp, play. Omarchy made that possible, because an agent can drive every part of it. All of it is free and open source.</p>
 <p class="small muted">A 10-minute read. Every experiment, chart and preset behind it is in the <a href="lab/">lab notes</a>. Code: <a href="https://github.com/saada/fcb1010-biasfx2">github.com/saada/fcb1010-biasfx2</a> (MIT).</p>
 </div>
 
 <p class="act" id="act-one">Act one · leaving Wine</p>
 <h2>10 ms on paper, mud in my hands</h2>
-<p><a href="/blog/fcb1010-biasfx2/">Last time</a>, the pedalboard that lived under my desk for years finally talked to BIAS FX 2, and I stood in my living room grinning through The Evil That Men Do. Then I did the thing every developer threatens to do: I left macOS for <a href="https://omarchy.org">Omarchy</a>, the opinionated Arch + Hyprland setup. I love it. My guitar rig did not come along quietly.</p>
+<p><a href="/blog/fcb1010-biasfx2/">Last time</a>, the pedalboard that lived under my desk for years finally talked to BIAS FX 2, and I stood in my living room grinning through The Evil That Men Do. Then I did the thing every developer threatens to do: I left macOS for <a href="https://omarchy.org">Omarchy</a>, the opinionated Arch + Hyprland setup. I love it. It's also AI-first: it ships with Claude Code, Codex and OpenCode installed. I didn't expect that to matter for guitar. It turned out to be the whole story. My guitar rig, meanwhile, did not come along quietly.</p>
 <p>BIAS FX 2 is Windows/macOS only, so it came along under Wine. The scripts from last time still worked, presets loaded, the pedal switched them, and the app claimed about 10 ms of latency. It felt like playing through a swimming pool. That number only covers the app's own buffer; under Wine the audio also crosses an ASIO shim, a JACK bridge and PipeWire, and none of that shows up in the friendly "10 ms". Skill issue? Maybe. Architecture issue? Definitely.</p>
 
 <h2>A native amp sim, and presets as code</h2>
@@ -402,7 +402,7 @@ table.licenses .muted { display:block; font-size:.68rem }
 
 <p class="act" id="part-two">Act two · a DAW nobody clicks</p>
 <h2>Generated, never clicked</h2>
-<p>A standalone amp sim can't do a real wah, a harmony or a compressor. A DAW can, but DAWs want you to click. So the DAW is generated: <code>qtractor_rig.py</code> writes the entire <a href="https://qtractor.org">Qtractor</a> session (tracks, plugins, MIDI bindings) and starts it. Nothing in it was ever touched with a mouse. A compressor and limiter on the way out cut the loudness spread across presets from 9.2 to 4.6 dB and ended a day of hand-levelling. (<a href="lab/#part-two">Picking the DAW, and whether the compressor earned its place →</a>)</p>
+<p>A standalone amp sim can't do a real wah, a harmony or a compressor. A DAW can, but DAWs want you to click, and an agent can't click. It can write files and run commands, so the DAW is generated: <code>qtractor_rig.py</code> writes the entire <a href="https://qtractor.org">Qtractor</a> session (tracks, plugins, MIDI bindings) and starts it. Nothing in it was ever touched with a mouse. A compressor and limiter on the way out cut the loudness spread across presets from 9.2 to 4.6 dB and ended a day of hand-levelling. (<a href="lab/#part-two">Picking the DAW, and whether the compressor earned its place →</a>)</p>
 
 <p class="act" id="maiden">Act three · up the Irons</p>
 <h2>Seven eras of Maiden on one floorboard</h2>
@@ -440,7 +440,7 @@ table.licenses .muted { display:block; font-size:.68rem }
 
 <p class="act">Act five · GuitarMood</p>
 <h2 id="guitarmood">GuitarMood: the rig as an Omarchy app</h2>
-<p>Last time I ended with a promise: a TUI that draws the pedalboard and lights up the switch you just stomped. By now the rig sounded right, but using it still meant a terminal to start it and a pedal that tells you nothing. The FCB1010 shows a bank number and one LED. Is the wah on? Did the boost reset when I changed song? Which bank was Fear of the Dark? So I asked for "a desktop app that shows live status of what i selected in the pedal as a hypland tile and autoscale and plays nice with omarchy... I don't have to guess anything."</p>
+<p>Last time I ended with a promise: a TUI that draws the pedalboard and lights up the switch you just stomped. By now the rig sounded right, but using it still meant a terminal to start it and a pedal that tells you nothing. Is the wah on? Did the boost reset? Which bank was Fear of the Dark? So I asked for "a desktop app that shows live status of what i selected in the pedal as a hypland tile and autoscale and plays nice with omarchy... I don't have to guess anything."</p>
 <p>Claude's first plan was GTK. I asked: "omarchy seems to love Qt?" It does: the Omarchy shell is <a href="https://quickshell.org">Quickshell</a>, which is QML. So the promised TUI grew into a Qt window instead: GuitarMood, a <a href="https://docs.astral.sh/uv/">uv</a> project with a QML front end. (Editing the layout from it is still to come; the board itself is still two tables in <code>rig.py</code>.) It reads the active theme's colours and recolours live when I switch themes.</p>
 
 <h3>The window is the pedalboard</h3>
@@ -462,10 +462,10 @@ table.licenses .muted { display:block; font-size:.68rem }
 <p class="caption">Popped out with SUPER+O: bank 3, RHYTHM, five toggles, none on.</p>
 
 <h3>Never guess</h3>
-<p>The pedal only sends fixed messages (a toggle sends the same CC 127 whether it's switching on or off), so GuitarMood rebuilds the state from the MIDI, following the rig's own rules. DAW effects (wah, harmony) survive a song change; amp-sim blocks (boost, delay) reset to the preset's own state on every preset load; the scene is read from the message that ends each switch's burst. If it joins a rig that's already running, it reads what it can from the saved session and shows "?" for the rest until you press something. The tests replay the MIDI of the first real session I played and check that it ends exactly where I did.</p>
+<p>The pedal only sends fixed messages (a toggle sends CC 127 whether it's switching on or off), so GuitarMood rebuilds the state from the MIDI by the rig's own rules: DAW effects survive a song change, amp-sim blocks reset on every preset load. Anything it can't know shows "?" until you press a switch. The tests replay my first real session and check it ends exactly where I did.</p>
 
 <h3>On is open, off is close, and it's two-way</h3>
-<p>Open it from the launcher and the rig starts, with Qtractor parked on a hidden workspace. A second launch just focuses the window. Close it (SUPER+W), log out or Ctrl-C, and it closes the tuner, saves the session and quits Qtractor; tested end to end, nothing left running. And it works both ways: click a tile or press 1–9, 0 and GuitarMood sends exactly what the FCB would, from the same code that wrote the pedal's layout. The pedal itself can't be told anything, so its own display keeps its bank, and presses from the screen are marked "on screen". (<a href="lab/#guitarmood">How it works, in detail →</a>)</p>
+<p>Because every part of Omarchy is a command, the agent wired GuitarMood into the desktop itself: a launcher entry, and a Hyprland rule that parks Qtractor on a hidden workspace. Open it and the rig starts. A second launch just focuses the window. Close it (SUPER+W), log out or Ctrl-C, and it closes the tuner, saves the session and quits Qtractor; tested end to end, nothing left running. And it works both ways: click a tile or press 1–9, 0 and GuitarMood sends exactly what the FCB would, from the same code that wrote the pedal's layout. The pedal itself can't be told anything, so its own display keeps its bank, and presses from the screen are marked "on screen". (<a href="lab/#guitarmood">How it works, in detail →</a>)</p>
 
 <div class="stats" role="list">
 <div class="stat" role="listitem"><div class="stat__n">0.0%</div><div class="stat__l">GuitarMood's CPU, rig live</div></div>
@@ -474,6 +474,15 @@ table.licenses .muted { display:block; font-size:.68rem }
 <div class="stat" role="listitem"><div class="stat__n">9.2 → 4.6</div><div class="stat__l">dB of loudness spread, compressor on</div></div>
 </div>
 <p class="caption">The numbers, from btop and <a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md">experiments</a> D1, D5, D6 and D11. <a href="lab/#part-two">Charts →</a></p>
+
+<h2 id="why-omarchy">Why Omarchy made this possible</h2>
+<p>None of this took a mouse, and that's not me being stubborn. It's what Omarchy is built for. It's AI-first in exactly the places an agent needs:</p>
+<ul>
+<li><strong>The agents are already there.</strong> Claude Code, Codex and OpenCode come installed. <code>omarchy-agent</code> opens your default one; <code>omarchy-agent-prompt</code> hands it a task. There are usage meters for Claude and Codex, and your Omarchy theme follows you into Claude Code.</li>
+<li><strong>Everything is a command.</strong> Hyprland takes Lua through <code>hyprctl</code>, the shell answers IPC through <code>omarchy-shell</code>, and bar widgets are set with <code>omarchy bar set</code>. That's how Qtractor ends up out of sight, and how SW10 opens Fretwise on the guitar input.</li>
+<li><strong>A marketplace of QML plugins.</strong> When I needed a tuner, the best one was one <code>omarchy plugin add</code> away.</li>
+</ul>
+<p>So the agent built a whole musician's setup the way it writes code: read, write, run, measure. My job was playing, listening, and saying what felt wrong.</p>
 
 <h2 id="free">Free for anyone</h2>
 <p>No Wine, no paid DAW, no subscription. Everything between the guitar cable and the speakers runs natively on Linux, and every piece is open source. I checked each license:</p>
@@ -519,7 +528,9 @@ uv run --project guitarmood \
 <p class="small muted">First set your audio interface and MIDI port at the top of <code>tone3000.py</code>, turn your monitor knob down, and grab the TONE3000 download from <a href="https://www.tone3000.com/plugin">tone3000.com/plugin</a>. The <a href="https://github.com/saada/fcb1010-biasfx2/blob/main/README.md">README</a> has the details.</p>
 <p id="practice">Then every time you play: SUPER+SPACE → GuitarMood. SW10 to tune. Pick a bank with UP/DOWN and press RHYTHM, CLEAN or ACOUSTIC to load the era. Play. SUPER+W when you're done. The one-time setup (FCB upload, real time) and the Maiden song recipes are in the <a href="https://github.com/saada/fcb1010-biasfx2/blob/main/README.md#practice-guide">README's practice guide</a>.</p>
 <p>Last time I pair-programmed with Claude Fable. This time, all of it, from the reverse-engineered preset format to GuitarMood and this write-up, I built with <a href="https://claude.com/claude-code">Claude Code</a> running <strong>Claude Opus 5.5</strong>. Claude wrote the code and ran the research agents and every measurement. I played, listened, and said "bro, wtf is this ugly tuner" when it was needed.</p>
-<p>Up the Irons.</p>
+<h2 id="play">The point: practice</h2>
+<p>Here's what changed. The setup is done, and it stays done. I sit down, open GuitarMood, tune with SW10, pick an era and play along with the record. A Saturday goes to the Rime of the Ancient Mariner solo, not to MIDI menus. The next step is the one the pedalboard was always for: playing this for people, with a screen that tells me exactly where I am.</p>
+<p>There's never been a better time to be a musician on Linux: the OS gets out of the way, an agent builds the rig, and I practice. Up the Irons.</p>
 
 <a class="labcard" href="lab/">
 <span class="labcard__k">Lab notes</span>
