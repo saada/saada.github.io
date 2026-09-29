@@ -1,0 +1,17 @@
+{
+  "headline": "A free guitar rig for <em>Omarchy</em>",
+  "kicker": "GuitarMood: every pedal, live",
+  "tags": [
+    "Omarchy",
+    "Open source",
+    "FCB1010",
+    "Iron Maiden"
+  ],
+  "image": "images/card-hero.jpg",
+  "focus": "0% 50%",
+  "accent": "#7aa2f7",
+  "imageWidth": 600,
+  "headlinePx": 62,
+  "fade": 12,
+  "brightness": 1.25
+}

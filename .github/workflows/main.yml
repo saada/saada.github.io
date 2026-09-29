@@ -30,6 +30,7 @@ jobs:
       - name: Build
         run: |
           bun install --frozen-lockfile
+          bun run cards:check
           bun run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "bun index.html",
-    "build": "bun build index.html --outdir=dist --minify && cp -r blog dist/ && cp -r static/. dist/"
+    "build": "bun build index.html --outdir=dist --minify && cp -r blog dist/ && cp -r static/. dist/",
+    "cards": "bun scripts/og-cards.ts",
+    "cards:check": "bun scripts/og-cards.ts --check"
   },
   "dependencies": {
     "react": "^19.2.6",

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  /* One link card for every post: 1200x630, readable as a phone-sized preview on X. */
+  :root { --bg: #1a1b26; --fg: #c0caf5; --muted: #9aa5ce; --line: #414868; --accent: {{ACCENT}}; }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: var(--bg); }
+  body { font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "DejaVu Sans Mono", monospace; }
+  .pic {
+    position: absolute; top: 0; right: 0; bottom: 0; width: {{IMAGE_WIDTH}}px;
+    background: url("{{IMAGE}}") {{FOCUS}} / cover no-repeat;
+    filter: brightness({{BRIGHTNESS}});
+  }
+  .pic::after {  /* fade the picture into the text side */
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, rgba(26, 27, 38, 0.6) calc({{FADE}}% * 0.4), rgba(26, 27, 38, 0) {{FADE}}%);
+  }
+  .text {
+    position: absolute; top: 0; left: 0; bottom: 0; width: {{TEXT_WIDTH}}px;
+    padding: 52px 24px 50px 60px; display: flex; flex-direction: column;
+  }
+  .site { font-size: 24px; color: var(--muted); }
+  .site b { color: var(--accent); }
+  h1 {
+    margin-top: auto; font-size: {{HEADLINE_PX}}px; line-height: 1.06; font-weight: 800;
+    color: #ffffff; letter-spacing: -1.5px;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .kicker { margin-top: 20px; font-size: 27px; line-height: 1.3; color: var(--fg); font-weight: 600; }
+  .tags { margin-top: auto; padding-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .tags span {
+    font-size: 21px; padding: 7px 16px; border: 2px solid var(--line); border-radius: 999px;
+    color: var(--fg); background: rgba(26, 27, 38, 0.85);
+  }
+</style>
+</head>
+<body>
+  <div class="pic"></div>
+  <div class="text">
+    <div class="site"><b>▍</b>saada.github.io/blog</div>
+    <h1>{{HEADLINE}}</h1>
+    <div class="kicker">{{KICKER}}</div>
+    <div class="tags">{{TAGS}}</div>
+  </div>
+</body>
+</html>
