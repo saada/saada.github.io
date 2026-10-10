@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="GuitarMood, a free guitar rig app for Omarchy: the FCB1010 pedalboard live on screen, bank 3, RHYTHM lit">
 <meta property="article:published_time" content="2026-09-26T00:00:00Z">
-<meta property="article:modified_time" content="2026-10-09T00:00:00Z">
+<meta property="article:modified_time" content="2026-10-10T00:00:00Z">
 <meta property="article:author" content="Mahmoud Saada">
 <meta property="article:section" content="Engineering">
 <meta property="article:tag" content="Linux">
@@ -42,7 +42,7 @@
   "description": "Part two: on AI-first Omarchy, an agent built my whole guitar rig, from neural amp tones to GuitarMood, the app that is my pedalboard. Free, open source, no setup left. Now I just practice.",
   "image": "https://saada.github.io/blog/tone3000-linux-rig/images/og-card.png",
   "datePublished": "2026-09-26T00:00:00Z",
-  "dateModified": "2026-10-09T00:00:00Z",
+  "dateModified": "2026-10-10T00:00:00Z",
   "inLanguage": "en",
   "keywords": "GuitarMood, Omarchy, Hyprland, TONE3000, NAM, Qtractor, Iron Maiden, FCB1010, Linux, open source",
   "author": {
@@ -415,6 +415,8 @@ section.update .tablewrap { margin-bottom:6px }
   table.update__t th, table.update__t td { padding:6px 6px }
   table.update__banks td:first-child { white-space:normal; min-width:4.6em }
 }
+/* update 2: the tune output keeps its columns on phones (lines are short enough to fit) */
+pre.update__out code { display:block; white-space:pre !important; overflow-wrap:normal !important; font-size:.72rem; line-height:1.45 }
 
 </style></head>
 <body>
@@ -446,6 +448,59 @@ section.update .tablewrap { margin-bottom:6px }
 <p>Last time, my FCB1010 finally drove BIAS FX 2. Now it drives a guitar rig that's AI-native end to end, on <a href="https://omarchy.org">Omarchy</a>. The tone is neural: amp models learned from real gear. The rig was built by an agent: Claude Code running Claude Opus 5.5 wrote every piece, down to <strong>GuitarMood</strong>, the app that <em>is</em> my pedalboard. And there's no setup left to think about: open GuitarMood, stomp, play. Omarchy made that possible, because an agent can drive every part of it. All of it is free and open source.</p>
 <p class="small muted">The story is a 12-minute read. After it come the receipts and the full lab notes: 24 charts, 6 datasets, every A/B test and all 36 presets, all on this page. Code: <a href="https://github.com/saada/fcb1010-biasfx2">github.com/saada/fcb1010-biasfx2</a> (MIT).</p>
 </div>
+
+<section class="update" aria-labelledby="update-2">
+<h2 id="update-2">Update 2: five banks, tone by words, the last flash</h2>
+<p class="update__date"><time datetime="2026-10-10">2026-10-10</time> · newest first; yesterday's update is right below</p>
+<p>A day later, the board grew again. I kept playing, kept saying what I wanted, and the agents kept shipping. Three things changed.</p>
+
+<p><strong>Two new banks, five total.</strong></p>
+<div class="tablewrap"><table class="update__t update__banks">
+<thead><tr><th>Bank</th><th>SW1–5</th><th>SW7</th></tr></thead>
+<tbody>
+<tr><td><b>0 MAIDEN</b></td><td>Rhythm · Lead · Clean · Acoustic · Crunch</td><td>Harmony</td></tr>
+<tr><td><b>1 80s</b></td><td>Van Halen I · VH 1984 · Pyromania · Hysteria · U2 Streets</td><td><b>Chorus</b></td></tr>
+<tr><td><b>2 80s CLEAN</b> new</td><td>Is This Love · Rule the World · Every Breath You Take · Hysteria Clean · This Charming Man</td><td><b>Chorus</b></td></tr>
+<tr><td><b>3 VARIETY</b></td><td>Comfortably Numb · Radiohead · Nirvana · Djent · Purple Rain</td><td>Octaver</td></tr>
+<tr><td><b>4 MODERN</b> new</td><td>Satan Full Rig · Satan 50 Modern · Low Tuned · Lead · Stormblade</td><td>Octaver</td></tr>
+</tbody></table></div>
+<p class="caption">SW6 is still the wah and SW10 the tuner in every bank.</p>
+
+<p><strong>80s CLEAN</strong> is every chorus-drenched clean I grew up on. TONE3000 can't do chorus, so the DAW does: a real stereo chorus (LSP Chorus Stereo) on SW7 in both 80s banks, with each song's own rate, depth and mix (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d20--bank-2-80s-clean-levels-and-a-real-chorus-in-the-daw">D20</a>).</p>
+
+<figure class="wide">
+<a href="images/guitarmood/80s-clean.jpg"><img src="images/guitarmood/80s-clean.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="GuitarMood showing bank 2, 80s Clean: Is This Love lit on SW1, Rule the World, Every Breath You Take, Hysteria Clean and This Charming Man beside it, and Chorus lit on SW7 with the song's rate, next to Wah, Boost, Delay and Tuner; the setlist shows five banks"></a>
+</figure>
+<p class="caption">Bank 2 with SW7's chorus on, rendered offscreen with no rig attached.</p>
+
+<p><strong>MODERN</strong> is Randall Satan territory, built from free community captures on TONE3000: <a href="https://www.tone3000.com/tones/44730">@nillmtd's full rig</a> of Ola Englund's Satan + Fortin 33, <a href="https://www.tone3000.com/tones/1627">Paul Jacovino's Satan 50</a> and <a href="https://www.tone3000.com/tones/2090">Solar CHUG</a>, and <a href="https://www.tone3000.com/tones/28672">@elihis's Fortin 33</a>. The cabs are free PLAP IRs from <a href="https://lancasteraudio.com">Lancaster Audio</a> (Warren Huart's Marshall V25s, Cameron Webb's Uberschall, Ulrich Wild's Albion), and SW5 is Glenn Fricker's free Stormblade A2 from <a href="https://spectremedia.kit.com/55316a8f96">Spectre Media</a>. Thank you all (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d18--distinct-cabs-for-bank-3-and-glenn-frickers-stormblade-a2-on-sw5">D18</a>).</p>
+
+<p><strong>Say it and it's done.</strong> What I asked for: I want to say "make all cleans sound fatter" and have it take 2s instead of 20 mins. Now every number we tune lives in one sheet, <a href="https://github.com/saada/fcb1010-biasfx2/blob/main/rigs/tone.csv">rigs/tone.csv</a>, with <code>@clean</code>-style group rows and a small word vocabulary. One command edits the sheet and renders every clean it touched, before and after, in the real TONE3000 engine, offline:</p>
+<pre class="snippet update__out"><code>$ uv run tone3000.py tune @clean fatter
+tune @clean fatter x1: 8 presets in reach
+  eq_100 +1, eq_250 +1.5, eq_3k5 -0.5
+preset         &lt;250 250-800  2-5k
+Maiden Clean      =   +0.3  -1.2
+U2 Streets     +0.2   +0.1  -1.1
+Purple Rain    +0.8   +0.6  -0.5
+Is This Love   +0.8   +0.5  -0.5
+Rule the World +0.4   +0.2  -0.8
+Every Breath   +0.3   +0.2  -0.9
+Hysteria Clean +0.7   +0.2  -0.5
+Charming Man   +0.4   +0.5  -0.8
+8 presets, 10 rendered, 6 from cache</code></pre>
+<p class="caption">Trimmed output: band energy changes in dB, before → after. The renderer, <a href="https://github.com/saada/fcb1010-biasfx2/blob/main/rigsim.py">rigsim.py</a>, hosts the native TONE3000 plugin offline and lands within 0.1 dB of the live bench (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d19--an-offline-simulator-the-real-tone3000-engine-faster-than-real-time">D19</a>). Edit plus renders: 3.3 s measured.</p>
+<p>Add <code>--apply</code> and it's live on my next stomp, because TONE3000 rereads the preset file on every Program Change. No restart, no clicking.</p>
+
+<p><strong>The last pedal flash.</strong> Every layout change meant re-flashing the FCB1010, and I finally asked: "why do you keep making me flash the thing". So I flashed it one last time. Now the pedal only sends fixed addresses on channel 16, and a tiny ALSA router, <a href="https://github.com/saada/fcb1010-biasfx2/blob/main/fcb_router.py">fcb_router.py</a>, maps them to the layout in software. It adds 0.28 ms median live, hot-reloads when the layout changes, and runs in the helper or inside GuitarMood. Banks are just code now (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d21--a-universal-flash-and-a-software-router-what-the-extra-hop-costs">D21</a>).</p>
+
+<figure class="wide">
+<a href="images/guitarmood/modern.jpg"><img src="images/guitarmood/modern.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="GuitarMood showing bank 4, Modern: Satan Full Rig lit on SW1, Satan 50 Modern, Satan 50 Low Tuned, Satan 50 Lead and Stormblade beside it, Wah, Octaver, Lead, Drive and Tuner on the top row"></a>
+</figure>
+<p class="caption">Bank 4, reached from one ch 16 address through the same router code GuitarMood runs.</p>
+
+<p><strong>How.</strong> Same as yesterday: Claude Opus 5.5 split the work across parallel subagents, and every one of them followed <a href="https://github.com/saada/fcb1010-biasfx2/blob/main/AGENTS.md">AGENTS.md</a>: presets are code, and measure, then claim. That's the whole point. I say what I hear or what I want. Agents ship it while I keep playing.</p>
+</section>
 
 <section class="update" aria-labelledby="update">
 <h2 id="update">Update: no glitches, open chugs, three banks</h2>
