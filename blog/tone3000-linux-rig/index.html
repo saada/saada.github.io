@@ -449,6 +449,43 @@ pre.update__out code { display:block; white-space:pre !important; overflow-wrap:
 <p class="small muted">The story is a 12-minute read. After it come the receipts and the full lab notes: 24 charts, 6 datasets, every A/B test and all 36 presets, all on this page. Code: <a href="https://github.com/saada/fcb1010-biasfx2">github.com/saada/fcb1010-biasfx2</a> (MIT).</p>
 </div>
 
+<section class="update" aria-labelledby="update-3">
+<h2 id="update-3">Update 3: seven banks, and a rig that knows my guitar</h2>
+<p class="update__date"><time datetime="2026-10-11">2026-10-11</time> · newest first; yesterday's update is right below</p>
+<p>Two new banks, reverbs off the busy core, and every preset voiced for the guitar I actually play.</p>
+
+<p><strong>Sounds.</strong> I asked: “Do we have a journey tone like who's crying now outro solo?” Now it opens a whole bank.</p>
+<div class="tablewrap"><table class="update__t update__banks">
+<thead><tr><th>Bank</th><th>SW1–5</th><th>SW7</th></tr></thead>
+<tbody>
+<tr><td><b>5 80s LEADS</b> new</td><td>Who's Crying Now · Sweet Child O' Mine · Crazy Train · Master of Puppets · Eruption</td><td>Chorus</td></tr>
+<tr><td><b>6 LEGENDS</b> new</td><td>Pride and Joy · Voodoo Child · Bohemian Rhapsody · Whole Lotta Love · Back in Black</td><td><b>Vibe</b></td></tr>
+<tr><td><b>0 MAIDEN</b> rebuilt</td><td>Clean = Hallowed Be Thy Name intro · Acoustic = Dance of Death, Dream of Mirrors</td><td>Harmony</td></tr>
+</tbody></table></div>
+<p class="caption">SW6 wah, SW8 boost, SW9 delay and SW10 tuner in both new banks.</p>
+
+<p>Nobody documented Neal Schon's amp on <i>Escape</i>, so Who's Crying Now runs on the one amp anyone named: a cranked '71 Twin, with a TS9 that squeezes the crest from 15.0 to 13.0 dB (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d27--bank-5-80s-leads-levels-and-an-amp-for-an-undocumented-solo">D27</a>). The ten new songs, once spread from &minus;4.3 to &minus;20.3 LUFS, all sit at &minus;13.9 to &minus;14.0. Legends' SW7 is a Uni-Vibe built from LSP Phaser, not yet measured (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d28--bank-6-legends-levels-its-stereo-balance-and-a-phaser-as-the-uni-vibe">D28</a>). The Maiden clean lost 4.7 dB of boom under 250 Hz. The acoustic measured darker than my dry guitar, and now has 18 dB more at 2–5 kHz (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d24--maiden-clean--hallowed-be-thy-name-maiden-acoustic--dance-of-death--dream-of-mirrors">D24</a>).</p>
+
+<figure class="wide">
+<a href="images/guitarmood/80s-leads.jpg"><img src="images/guitarmood/80s-leads.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="GuitarMood showing bank 5, 80s Leads: Who's Crying Now lit on SW1, Sweet Child O' Mine, Crazy Train, Master of Puppets and Eruption beside it, Boost (Ibanez TS9 clean push) and Delay (tape delay, 500 ms) lit on the top row next to Wah, Chorus and Tuner"></a>
+</figure>
+<p class="caption">Bank 5 from ch 16 PC 50, rendered offscreen with no rig.</p>
+
+<p>Free TONE3000 captures again: <a href="https://www.tone3000.com/slamminmofo">@slamminmofo</a>'s amps carry five new songs, plus <a href="https://www.tone3000.com/tones/6106">@dahmanmusic's '71 Twin</a>, <a href="https://www.tone3000.com/tones/43380">@ripper's 1959RR</a>, <a href="https://www.tone3000.com/tones/2769">@dogusaltin's Mark IIC+</a>, <a href="https://www.tone3000.com/tones/66220">Fabio Zani's Dumble Steel</a> and <a href="https://www.tone3000.com/tones/56237">AmalgamAudio's JTM45/100</a>, and for Maiden <a href="https://www.tone3000.com/tones/48523">@danielesporma's JMP 1987</a>, <a href="https://www.tone3000.com/tones/1061">@origrino's JMP 2203</a>, <a href="https://www.tone3000.com/tones/29116">@raymondvisser's piezo</a> and <a href="https://www.tone3000.com/tones/43190">@ygorthyago's Taylor 816</a>. Thank you all.</p>
+
+<figure class="wide">
+<a href="images/guitarmood/legends.jpg"><img src="images/guitarmood/legends.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="GuitarMood showing bank 6, Legends: Pride and Joy lit on SW1, Voodoo Child, Bohemian Rhapsody, Whole Lotta Love and Back in Black beside it, Vibe (Uni-Vibe) and Boost (Ibanez TS9) lit on the top row next to Wah, Delay and Tuner; the setlist shows seven banks"></a>
+</figure>
+<p class="caption">Bank 6 (PC 60) with SW7's Vibe, a DAW toggle that survives song changes.</p>
+
+<p><strong>The rig got smarter.</strong> I said: “the sound seems wildly louder when i play specific palm muted notes vs the rest of the sound”. My own take, through the real engine, put B1 at &minus;0.3 dB and B2 at +1.0 dB from the median palm note. The rig is flat. The suspect, still unmeasured, is my room: a 2.8 m dimension resonates at 61.7 and 123.4 Hz, exactly B1 and B2 (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d23--palm-muted-b-is-wildly-louder-rig-or-room">D23</a>).</p>
+<p>Then: “It makes the system feel sluggish despite not really using all the cpu.” One realtime thread did all the DSP while about 11 of 12 cores idled, and long reverbs made it burst every 32nd cycle. They now run on threads of their own. Maiden Acoustic's worst callback went from 4.70 to 1.43 ms, and an interleaved live A/B read 0 and 41 xruns before, then 0, 0, 0 and 2 after, plus one outlier that didn't repeat (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d25--clips-but-the-cpu-isnt-busy-one-realtime-thread-and-tone3000s-reverb-bursts">D25</a>). TONE3000 had also trimmed the lead-in off 24 delay-only echoes, landing their first repeat on the note. One &minus;79 dBFS sample puts every delay back within 0.5 ms (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d26--tone3000-trims-leading-silence-delay-only-echoes-played-their-first-repeat-on-the-dry-note">D26</a>).</p>
+<p>Last: “are you aware of what guitar I'm playing on and have you put that into consideration across our presets and rig?” Only partly. <a href="/blog/fcb1010-biasfx2/">My JP70</a>'s hot bridge humbucker (about 18 kΩ) resonates near 2.0 kHz in a pickup model, a Strat near 4.1 kHz. Now all 33 presets name their record's pickup, and the builder EQs the amp's input to match, moving the level by 0.5 dB at most. Only Maiden Heavy gets its low B tightened, by 6 dB (<a href="https://github.com/saada/fcb1010-biasfx2/blob/main/experiments/README.md#d29--voicing-the-rig-for-the-owners-jp70-pickup-voicings-low-b-eb-opt-in">D29</a>).</p>
+
+<p><strong>How.</strong> Parallel Claude Opus 5.5 subagents, six PRs (<a href="https://github.com/saada/fcb1010-biasfx2/pull/6">#6</a> to <a href="https://github.com/saada/fcb1010-biasfx2/pull/11">#11</a>) merged in one day, briefs written with Matt Pocock's <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-for-agents"><code>writing-for-agents</code></a> skill. <a href="https://github.com/saada/fcb1010-biasfx2/blob/main/AGENTS.md">AGENTS.md</a> now records my guitar, so the next agent knows it's a seven-string JP70.</p>
+<p>I said what I heard, and every answer came back with a number. Back to that Who's Crying Now outro.</p>
+</section>
+
 <section class="update" aria-labelledby="update-2">
 <h2 id="update-2">Update 2: five banks, tone by words, the last flash</h2>
 <p class="update__date"><time datetime="2026-10-10">2026-10-10</time> · newest first; yesterday's update is right below</p>
