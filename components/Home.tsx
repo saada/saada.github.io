@@ -304,8 +304,8 @@ const Hero = () => {
                 , beyond engineering.
               </p>
               <p className="lede">
-                Before that came a decade of site reliability, platform and full-stack work. I
-                contribute to{" "}
+                Before that came a decade of developer experience, site reliability, platform
+                and full-stack work. I contribute to{" "}
                 <a className="hl" href="https://github.com/astral-sh/ty">
                   ty
                 </a>{" "}
