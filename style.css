@@ -1,35 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;700&family=Permanent+Marker&family=Special+Elite&display=swap");
 
-/* Black ink and technicolor: a pen drawing on a black ground, with three inks for
-   whatever gives off light. Midnight is the default; newsprint is the same drawing
-   on bone paper. */
+/* Arles: a pen drawing on sunflower yellow, in dark olive ink, with burnt orange, teal
+   and cream for whatever gives off light. Day is the default; night turns it inside out,
+   yellow lines on an olive-black ground. Paper stays cream in both. */
 :root {
-  --bg: #0b0b0c;
-  --ink: #ece6d8;
-  --muted: #a8a295;
-  --rule: rgba(236, 230, 216, 0.3);
-  --underline: #ffe600;
-  --accent: #ff2e7e;
-  --paper: #f1ebdc;
-  --paper-ink: #0b0b0c;
-  --paper-accent: #b3003c;
-  --magenta: #ff2e7e;
-  --yellow: #ffe600;
-  --cyan: #19c3ff;
-  --black: #0b0b0c;
+  --bg: #e8b830;
+  --ink: #282c18;
+  --muted: #4a4a26;
+  --rule: rgba(40, 44, 24, 0.4);
+  --underline: #12615f;
+  --accent: #8a3206;
+  --focus: #12615f;
+  --dots: rgba(40, 44, 24, 0.16);
+  --paper: #fff8e6;
+  --paper-ink: #282c18;
+  --paper-accent: #b4440c;
+  --key: #282c18;
+  --hot: #e8641b;
+  --cool: #1f8a8a;
+  --sun: #ffd75e;
+  --sun-deep: #f7c948;
+  --panel-3: #282c18;
   --gothic: "Grenze Gotisch", Georgia, "Times New Roman", serif;
   --type: "Special Elite", "Courier New", Courier, monospace;
   --marker: "Permanent Marker", "Comic Sans MS", cursive;
 }
 
-[data-theme="light"] {
-  --bg: #e9e2d0;
-  --ink: #0e0c0c;
-  --muted: #57524a;
-  --rule: rgba(14, 12, 12, 0.34);
-  --underline: #b3003c;
-  --accent: #b3003c;
-  --paper: #fffdf2;
+[data-theme="dark"] {
+  --bg: #1d2012;
+  --ink: #f6edd0;
+  --muted: #b9b08a;
+  --rule: rgba(246, 237, 208, 0.3);
+  --underline: #f7c948;
+  --accent: #ff9a57;
+  --focus: #7fd0c8;
+  --dots: rgba(232, 184, 48, 0.12);
+  --cool: #2fb3ae;
+  --panel-3: #f7c948;
 }
 
 * {
@@ -78,7 +85,7 @@ a:hover {
 .hl {
   color: var(--paper-ink);
   text-decoration: none;
-  background: linear-gradient(var(--yellow), var(--yellow)) 0 100% / 100% 0.5em no-repeat;
+  background: linear-gradient(var(--sun), var(--sun)) 0 100% / 100% 0.5em no-repeat;
   transition: background-size 0.15s ease;
 }
 
@@ -121,14 +128,9 @@ a:hover {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(circle, rgba(236, 230, 216, 0.13) 1.2px, transparent 1.7px);
+  background-image: radial-gradient(circle, var(--dots) 1.2px, transparent 1.7px);
   background-size: 8px 8px;
   animation: drift 24s linear infinite;
-}
-
-[data-theme="light"] .hero__dots {
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.2) 1.2px, transparent 1.7px);
-  mix-blend-mode: multiply;
 }
 
 /* Hero: the handbill
@@ -153,11 +155,11 @@ a:hover {
 .bill {
   position: relative;
   padding: clamp(32px, 3.8vw, 42px) clamp(18px, 3.4vw, 38px) clamp(24px, 3vw, 32px);
-  background: radial-gradient(120% 90% at 50% 30%, transparent 55%, rgba(60, 40, 10, 0.16)), #f1ebdc;
-  border: 4px solid var(--black);
-  outline: 1px solid var(--black);
+  background: radial-gradient(120% 90% at 50% 30%, transparent 55%, rgba(60, 40, 10, 0.16)), var(--paper);
+  border: 4px solid var(--key);
+  outline: 1px solid var(--key);
   outline-offset: -11px;
-  box-shadow: 12px 12px 0 var(--magenta);
+  box-shadow: 12px 12px 0 var(--cool);
   transform: rotate(-0.8deg);
   animation: bill-in 0.85s cubic-bezier(0.3, 0.8, 0.3, 1) 0.2s both;
 }
@@ -168,8 +170,8 @@ a:hover {
   left: 22px;
   margin: 0;
   padding: 9px 12px 6px;
-  background: var(--yellow);
-  border: 3px solid var(--black);
+  background: var(--sun-deep);
+  border: 3px solid var(--key);
   font-size: 13px;
   line-height: 1;
   letter-spacing: 0.1em;
@@ -187,7 +189,7 @@ a:hover {
   padding: 0;
   border: 0;
   background: none;
-  color: var(--black);
+  color: var(--key);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -234,8 +236,8 @@ a:hover {
   font-weight: 700;
   font-size: clamp(3.5rem, 1.9rem + 5.6vw, 5.9rem);
   line-height: 0.84;
-  color: var(--black);
-  text-shadow: 4px 4px 0 var(--magenta);
+  color: var(--key);
+  text-shadow: 4px 4px 0 var(--hot);
   animation: press 0.8s cubic-bezier(0.2, 0.8, 0.3, 1) 1s both;
 }
 
@@ -246,7 +248,7 @@ a:hover {
   height: 18px;
   margin-top: 4px;
   fill: none;
-  stroke: var(--cyan);
+  stroke: var(--cool);
   stroke-width: 7;
   stroke-linecap: round;
   stroke-dasharray: 520;
@@ -257,8 +259,8 @@ a:hover {
   display: inline-block;
   margin: 12px 0 0;
   padding: 8px 10px 5px;
-  background: var(--black);
-  color: var(--yellow);
+  background: var(--key);
+  color: var(--sun);
   font-size: 14px;
   line-height: 1.25;
   letter-spacing: 0.08em;
@@ -300,7 +302,7 @@ a:hover {
   width: 82px;
   height: 104px;
   border-radius: 50%;
-  box-shadow: 6px 5px 0 var(--cyan);
+  box-shadow: 6px 5px 0 var(--hot);
   rotate: 3deg;
   animation: slap 0.4s ease-out 1.3s both;
 }
@@ -311,7 +313,7 @@ a:hover {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--black);
+  border: 3px solid var(--key);
   filter: grayscale(1) contrast(1.35) brightness(1.05);
 }
 
@@ -335,8 +337,8 @@ a:hover {
   content: "";
   flex: 1;
   height: 4px;
-  border-top: 1px solid var(--black);
-  border-bottom: 1px solid var(--black);
+  border-top: 1px solid var(--key);
+  border-bottom: 1px solid var(--key);
 }
 
 .programme-head h2 {
@@ -376,7 +378,7 @@ a:hover {
 .leader {
   flex: 1;
   min-width: 10px;
-  border-bottom: 2px dotted rgba(11, 11, 12, 0.5);
+  border-bottom: 2px dotted rgba(40, 44, 24, 0.5);
 }
 
 .stickers {
@@ -396,11 +398,11 @@ a:hover {
   align-items: center;
   min-height: 44px;
   padding: 0 14px;
-  border: 3px solid var(--black);
+  border: 3px solid var(--key);
   border-radius: 6px;
   background: #ffffff;
-  color: var(--black);
-  box-shadow: 3px 3px 0 var(--stk-shadow, var(--black));
+  color: var(--key);
+  box-shadow: 3px 3px 0 var(--stk-shadow, var(--key));
   font: 700 20px/1 var(--gothic);
   text-decoration: none;
   white-space: nowrap;
@@ -408,14 +410,14 @@ a:hover {
 }
 
 .stk:hover {
-  color: var(--black);
+  color: var(--key);
   translate: -2px -3px;
-  box-shadow: 6px 7px 0 var(--stk-shadow, var(--black));
+  box-shadow: 6px 7px 0 var(--stk-shadow, var(--key));
 }
 
-.stk--yellow { background: var(--yellow); }
-.stk--cyan { background: #5fd4ff; }
-.stk--pink { background: #ff7fb0; }
+.stk--sun { background: var(--sun-deep); }
+.stk--sea { background: #7fd0c8; }
+.stk--clay { background: #f39a5a; }
 .stk--white { background: #ffffff; }
 .stk--pill { border-radius: 999px; }
 .stk--soft { border-radius: 6px; }
@@ -423,9 +425,9 @@ a:hover {
 
 .stk--dark,
 .stk--dark:hover {
-  background: var(--black);
-  color: var(--yellow);
-  --stk-shadow: var(--magenta);
+  background: var(--key);
+  color: var(--sun);
+  --stk-shadow: var(--hot);
 }
 
 /* Hero: the small controls
@@ -437,10 +439,10 @@ a:hover {
   bottom: 14px;
   min-height: 48px;
   padding: 2px 16px 0;
-  border: 3px solid var(--black);
-  background: #f1ebdc;
-  color: var(--black);
-  box-shadow: 5px 5px 0 var(--magenta);
+  border: 3px solid var(--key);
+  background: var(--paper);
+  color: var(--key);
+  box-shadow: 5px 5px 0 var(--cool);
   font: 700 1.4rem/1 var(--gothic);
   cursor: pointer;
   rotate: 3deg;
@@ -463,10 +465,10 @@ a:hover {
 .chip {
   min-height: 44px;
   padding: 3px 14px 0;
-  border: 3px solid var(--black);
-  background: #f1ebdc;
-  color: var(--black);
-  box-shadow: 4px 4px 0 var(--magenta);
+  border: 3px solid var(--key);
+  background: var(--paper);
+  color: var(--key);
+  box-shadow: 4px 4px 0 var(--cool);
   font: 400 13px/1 var(--type);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -475,12 +477,12 @@ a:hover {
 }
 
 .chip--mode {
-  background: var(--yellow);
+  background: var(--sun-deep);
 }
 
 .chip:hover {
   translate: -2px -2px;
-  box-shadow: 6px 6px 0 var(--magenta);
+  box-shadow: 6px 6px 0 var(--cool);
 }
 
 .bill__close:focus-visible,
@@ -488,8 +490,15 @@ a:hover {
 .chip:focus-visible,
 .stk:focus-visible,
 a:focus-visible {
-  outline: 3px solid var(--cyan);
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
+}
+
+/* paper is cream in both themes, so what sits on it keeps one ring colour */
+.bill a:focus-visible,
+.bill__close:focus-visible,
+.panel a:focus-visible {
+  outline-color: #12615f;
 }
 
 /* The long version: sections
@@ -511,7 +520,7 @@ a:focus-visible {
   line-height: 1;
   text-transform: capitalize;
   color: var(--ink);
-  text-shadow: 3px 3px 0 var(--magenta);
+  text-shadow: 3px 3px 0 var(--hot);
 }
 
 /* a double rule runs from the heading to the edge, as on the handbill */
@@ -527,12 +536,12 @@ a:focus-visible {
 .panel {
   background: var(--paper);
   color: var(--paper-ink);
-  border: 3px solid var(--black);
-  box-shadow: 7px 7px 0 var(--panel-shadow, var(--magenta));
+  border: 3px solid var(--key);
+  box-shadow: 7px 7px 0 var(--panel-shadow, var(--cool));
 }
 
-.panel:nth-child(3n + 2) { --panel-shadow: var(--cyan); }
-.panel:nth-child(3n) { --panel-shadow: var(--yellow); }
+.panel:nth-child(3n + 2) { --panel-shadow: var(--hot); }
+.panel:nth-child(3n) { --panel-shadow: var(--panel-3); }
 
 .panel__title {
   font-family: var(--gothic);
@@ -554,7 +563,7 @@ a:focus-visible {
 .xp-role {
   margin-top: 14px;
   padding-top: 14px;
-  border-top: 2px dotted rgba(11, 11, 12, 0.45);
+  border-top: 2px dotted rgba(40, 44, 24, 0.45);
 }
 
 .xp-role:first-of-type {
@@ -602,15 +611,15 @@ a:focus-visible {
 .talk-card:hover {
   color: var(--paper-ink);
   translate: -2px -3px;
-  box-shadow: 10px 11px 0 var(--panel-shadow, var(--magenta));
+  box-shadow: 10px 11px 0 var(--panel-shadow, var(--cool));
 }
 
 .talk-thumb {
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-bottom: 3px solid var(--black);
-  background: var(--black);
+  border-bottom: 3px solid var(--key);
+  background: var(--key);
 }
 
 .talk-thumb img {
@@ -634,12 +643,12 @@ a:focus-visible {
   height: 40px;
   display: grid;
   place-items: center;
-  border: 3px solid var(--black);
+  border: 3px solid var(--key);
   border-radius: 50%;
-  background: var(--yellow);
-  color: var(--black);
+  background: var(--sun-deep);
+  color: var(--key);
   font-size: 0.8rem;
-  box-shadow: 3px 3px 0 var(--black);
+  box-shadow: 3px 3px 0 var(--key);
 }
 
 .talk-thumb__play span {
@@ -660,8 +669,8 @@ a:focus-visible {
   display: inline-block;
   margin-left: 8px;
   padding: 3px 7px 0;
-  background: var(--black);
-  color: var(--yellow);
+  background: var(--key);
+  color: var(--sun);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -746,7 +755,7 @@ a:focus-visible {
   list-style: none;
   margin: 0;
   padding: 10px 0 0;
-  border-top: 2px dotted rgba(11, 11, 12, 0.45);
+  border-top: 2px dotted rgba(40, 44, 24, 0.45);
   display: grid;
   gap: 8px;
   font-size: 0.93rem;
@@ -793,15 +802,15 @@ a:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  --stk-shadow: var(--magenta);
+  --stk-shadow: var(--cool);
 }
 
 .sticker-row .stk {
-  box-shadow: 4px 4px 0 var(--magenta);
+  box-shadow: 4px 4px 0 var(--cool);
 }
 
 .sticker-row .stk:hover {
-  box-shadow: 7px 8px 0 var(--magenta);
+  box-shadow: 7px 8px 0 var(--cool);
 }
 
 /* Footer */

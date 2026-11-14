@@ -33,7 +33,7 @@ const programme = [
 ];
 
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
-const FILLS = ["yellow", "cyan", "pink", "white"];
+const FILLS = ["sun", "sea", "clay", "white"];
 const SHAPES = ["pill", "soft", "square"];
 const TILTS = [-2, 1.5, -1, 2, -1.5, 1.5, 1.5, -2, -1];
 
@@ -239,9 +239,9 @@ const Hero = () => {
   const sprites = useRef<HTMLCanvasElement>(null);
   const scene = useRef<Scene | null>(null);
   const [theme, setTheme] = useState<SceneMode>(() =>
-    typeof document !== "undefined" && document.documentElement.dataset.theme === "light"
-      ? "light"
-      : "dark"
+    typeof document !== "undefined" && document.documentElement.dataset.theme === "dark"
+      ? "dark"
+      : "light"
   );
   const [away, setAway] = useState(false);
 
@@ -380,9 +380,9 @@ const Hero = () => {
           className="chip chip--mode"
           type="button"
           onClick={toggle}
-          aria-label={`Colour theme: ${theme === "dark" ? "midnight" : "newsprint"}. Switch`}
+          aria-label={`Colour theme: ${theme === "dark" ? "night" : "day"}. Switch`}
         >
-          {theme === "dark" ? "midnight" : "newsprint"}
+          {theme === "dark" ? "night" : "day"}
         </button>
       </nav>
     </header>

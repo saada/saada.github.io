@@ -4,32 +4,38 @@
 // as it is right now and laid over what is already there: thin pen lines for the sky, the
 // stems and the swirls, a wide eraser where the paper should show, and fat keylined colour
 // strokes for the things that give off light (the sun, the hearts of the stars, the windows,
-// the flowers). A second canvas on top holds the ticker tape, redrawn from scratch each frame.
+// the flowers), and a flat silhouette for the city. A second canvas on top holds the ticker
+// tape, redrawn from scratch each frame.
 
 export type SceneMode = "dark" | "light";
 
-type Sample = { a: number; l: number; w: number; T: number; fat: number; col: string | null };
+type Sample = { a: number; l: number; w: number; T: number; fat: number; col: string | null; plain: boolean };
 type Palette = {
-  bg: string; ink: string; key: string; solid: boolean;
+  bg: string; ink: string; key: string; city: string;
   core: string[]; rays: string[]; petals: string[][];
 };
 
 const MARKS_PER_FRAME = 120;
 const CONFETTI = 80;
 
-const HUES = {
-  core: ["255,243,107", "255,230,0", "255,255,255"],
-  rays: ["255,230,0", "255,46,126", "25,195,255"],
-  petals: [
-    ["255,212,0", "255,233,92", "255,184,0"],
-    ["255,46,126", "255,111,165", "214,0,92"],
-    ["25,195,255", "127,224,255", "10,155,230"],
-  ],
-};
+// Colours are "r,g,b" so they drop straight into rgb() and rgba().
+const CORE = ["255,244,200", "255,255,255", "255,214,90"];
+const ORANGE = ["232,100,27", "245,140,60", "200,80,20"];
+const CREAM = ["255,244,200", "255,255,255", "240,220,150"];
 
 const PALETTES: Record<SceneMode, Palette> = {
-  dark: { bg: "11,11,12", ink: "236,230,216", key: "11,11,12", solid: false, ...HUES },
-  light: { bg: "233,226,208", ink: "14,12,12", key: "14,12,12", solid: true, ...HUES },
+  // Arles by day: dark olive ink on sunflower yellow
+  light: {
+    bg: "232,184,48", ink: "40,44,24", key: "40,44,24", city: "40,44,24",
+    core: CORE, rays: ["232,100,27", "31,138,138", "255,244,200"],
+    petals: [ORANGE, ["31,138,138", "70,170,165", "20,105,110"], CREAM],
+  },
+  // and by night: the same drawing inside out, yellow lines on olive-black
+  dark: {
+    bg: "29,32,18", ink: "232,184,48", key: "16,18,10", city: "12,14,8",
+    core: CORE, rays: ["232,100,27", "47,179,174", "255,244,200"],
+    petals: [ORANGE, ["47,179,174", "110,210,200", "31,138,138"], CREAM],
+  },
 };
 
 const hash = (n: number) => {
@@ -54,8 +60,8 @@ export class Scene {
   private cur: Palette;
   private skyline = new Float32Array(512);
   private bits: any[] | null = null;
-  private o: Sample = { a: 0, l: 1, w: 1, T: 0, fat: 1, col: null };
-  private o2: Sample = { a: 0, l: 1, w: 1, T: 0, fat: 1, col: null };
+  private o: Sample = { a: 0, l: 1, w: 1, T: 0, fat: 1, col: null, plain: false };
+  private o2: Sample = { a: 0, l: 1, w: 1, T: 0, fat: 1, col: null, plain: false };
   private sc = {
     rs: 1, field: 0.8, cs: 0.11,
     sun: [0.87, 0.2, 0.105],
@@ -155,7 +161,7 @@ export class Scene {
   private sample(xf: number, yf: number, t: number, out: Sample) {
     const sc = this.sc, p = this.cur, a = this.aspect, R = Math.random;
     const X = xf * a, Y = yf;
-    out.l = 1; out.w = 1; out.fat = 1; out.col = null; out.T = 0;
+    out.l = 1; out.w = 1; out.fat = 1; out.col = null; out.T = 0; out.plain = false;
 
     // flowers thrown on the parade route: one to a cell, each a single hue
     const cs = sc.cs, ix = Math.floor(X / cs), iy = Math.floor((Y - sc.field + cs) / cs);
@@ -186,7 +192,7 @@ export class Scene {
       const blink = Math.floor(t * 0.1 + hash(gx + gy * 17.3) * 9);
       out.a = Math.PI / 2;
       if ((gx & 1) && hash(gx * 3.7 + gy * 91.3 + blink * 5.1) > 0.78) { out.col = p.rays[(hash(gx * 9.1 + gy) * 3) | 0]; out.l = 0.12; out.w = 0.42; }
-      else { out.T = p.solid ? 0.985 : 0; out.l = 0.5; out.fat = 4; }
+      else { out.col = p.city; out.plain = true; out.l = 0.45; out.w = 0.9; } // a flat silhouette, no keyline
       return;
     }
 
@@ -246,11 +252,11 @@ export class Scene {
     if (o.col) {
       wid = u * (7 + 5 * Math.random()) * o.w * big;
       len = u * (22 + 28 * Math.random()) * o.l * big;
-      style = `rgb(${o.col})`; keyed = true;
+      style = `rgb(${o.col})`; keyed = !o.plain;
     } else if (Math.random() < o.T) {
       wid = u * 1.25 * o.fat;
       len = u * (22 + 42 * Math.random()) * o.l;
-      if (o.T > 0.55 && o.fat < 2 && Math.random() < 0.26) a1 += 1.05; // cross-hatch the dark parts
+      if (o.T > 0.55 && Math.random() < 0.26) a1 += 1.05; // cross-hatch the dark parts
       style = `rgba(${p.ink},0.9)`;
     } else {
       wid = u * 4.4 * big;
