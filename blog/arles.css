@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;700&family=Special+Elite&display=swap");
+
+/* The blog in the home page's Arles colours.
+ *
+ * Each post carries its own stylesheet, written against a handful of colour variables.
+ * This file is linked after it and changes the variables and the page furniture: the post
+ * becomes a cream sheet with a keyline and a hard shadow, lying on the sunflower-yellow
+ * ground (olive-black at night, when the home page's theme is set to dark).
+ *
+ * Body text stays in Vollkorn: these are long reads. Headings take the home page's
+ * blackletter, labels its typewriter face, and code keeps JetBrains Mono.
+ */
+:root {
+  color-scheme: light;
+  --ground: #e8b830;
+  --dots: rgba(40, 44, 24, 0.16);
+  --key: #282c18;
+  --hot: #e8641b;
+  --cool: #1f8a8a;
+  --sun-deep: #f7c948;
+  --gothic: "Grenze Gotisch", Georgia, "Times New Roman", serif;
+  --type: "Special Elite", "Courier New", Courier, monospace;
+
+  /* the posts' own variables, re-inked for cream paper */
+  --bg: #fff8e6;
+  --surface: #f6ecd0;
+  --surface-2: #f1e5c2;
+  --border: #b9ae8a;
+  --border-soft: #d9cfae;
+  --text: #282c18;
+  --muted: #5a583c;
+  --accent: #b4440c;
+  --link: #12615f;
+  --tag: #b4440c;
+  --radius: 0px;
+}
+
+[data-theme="dark"] {
+  --ground: #1d2012;
+  --dots: rgba(232, 184, 48, 0.12);
+  --cool: #2fb3ae;
+}
+
+body {
+  background: var(--ground);
+}
+
+/* a halftone screen over the ground, as on the home page */
+body::before {
+  background: radial-gradient(circle, var(--dots) 1.2px, transparent 1.7px) 0 0 / 8px 8px;
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+}
+
+/* The sheet
+-------------------------------------------------- */
+
+.container {
+  position: relative;
+  max-width: 824px;
+  margin: 48px auto 72px;
+  padding: 0 40px 56px;
+  background: var(--bg);
+  border: 4px solid var(--key);
+  box-shadow: 12px 12px 0 var(--cool);
+}
+
+/* The header: was a terminal window, now the top of the handbill
+-------------------------------------------------- */
+
+.terminal {
+  margin-top: 0;
+  background: none;
+  border: 0;
+  border-bottom: 3px double var(--key);
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.terminal__bar {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+/* the way home, as the caption box that overlaps the sheet's top edge */
+.terminal__title {
+  position: absolute;
+  top: -21px;
+  left: 22px;
+  margin: 0;
+  padding: 9px 12px 6px;
+  background: var(--sun-deep);
+  color: var(--key);
+  border: 3px solid var(--key);
+  font-family: var(--type);
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  rotate: -2deg;
+}
+
+.terminal__title:hover {
+  color: var(--key);
+  rotate: -0.5deg;
+}
+
+.terminal__body {
+  padding: 40px 0 26px;
+}
+
+.prompt {
+  font-family: var(--type);
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.prompt::before {
+  content: none;
+}
+
+h1 {
+  margin: 12px 0 14px;
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5.4vw, 3.4rem);
+  line-height: 1;
+  text-shadow: 3px 3px 0 var(--hot);
+  text-wrap: balance;
+}
+
+.cursor {
+  display: none;
+}
+
+/* The article
+-------------------------------------------------- */
+
+article h2 {
+  margin: 60px 0 16px;
+  font-family: var(--gothic);
+  font-weight: 700;
+  font-size: 1.95rem;
+  line-height: 1.05;
+  letter-spacing: 0;
+  text-shadow: 2px 2px 0 var(--hot);
+}
+
+article h2::before,
+.lab__h::before {
+  content: none;
+}
+
+article h3,
+article h4 {
+  font-family: var(--type);
+  letter-spacing: 0.03em;
+}
+
+article img {
+  border: 3px solid var(--key);
+  box-shadow: 6px 6px 0 var(--cool);
+}
+
+.video iframe {
+  border: 3px solid var(--key);
+  box-shadow: 6px 6px 0 var(--hot);
+}
+
+.caption,
+.series,
+.act,
+.callout__title,
+.labcard__k,
+.labtoc__t,
+footer {
+  font-family: var(--type);
+}
+
+pre {
+  border: 2px solid var(--key);
+  border-radius: 0;
+}
+
+/* the sheet is a little narrower than the old page: long inline code may break */
+article :not(pre) > code {
+  overflow-wrap: anywhere;
+}
+
+blockquote {
+  border-left-color: var(--hot);
+}
+
+.callout,
+.labcard {
+  border: 3px solid var(--key);
+  box-shadow: 5px 5px 0 var(--sun-deep);
+}
+
+.labcard:hover {
+  box-shadow: 7px 7px 0 var(--hot);
+}
+
+.stat,
+nav.labtoc {
+  border: 2px solid var(--key);
+  border-radius: 0;
+}
+
+.act {
+  border-top-color: var(--key);
+}
+
+.labnotes {
+  border-top: 3px double var(--key);
+}
+
+.state--on {
+  color: #1e6b1e;
+  border-color: #1e6b1e;
+}
+
+.pill {
+  border-color: currentColor;
+}
+
+/* screenshots that run wider than the text now stop at the sheet's edge */
+figure.wide {
+  margin-left: -24px;
+  margin-right: -24px;
+}
+
+footer {
+  border-top: 3px double var(--key);
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* Charts and the drawn pedalboard keep the dark palette they were checked against,
+   as dark plates set into the paper. The variables are put back inside them only. */
+figure.viz,
+figure.mini,
+.board {
+  --surface: #17171a;
+  --surface-2: #121214;
+  --border: #2b2a2e;
+  --border-soft: #2a292d;
+  --text: #e9e2d6;
+  --muted: #9b9488;
+  --accent: #e0b366;
+  --link: #6fb7af;
+  --tag: #d98a5c;
+  color: var(--text);
+  border: 3px solid var(--key);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--hot);
+}
+
+figure.viz--highlight {
+  border-color: var(--key);
+  box-shadow: 6px 6px 0 var(--cool);
+}
+
+figure.viz .state--on,
+figure.mini .state--on,
+.board .state--on {
+  color: #7fd17f;
+  border-color: #2f5a2f;
+}
+
+figure.viz a:hover,
+figure.mini a:hover,
+.board a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .container {
+    margin: 34px 16px 52px;
+  }
+
+  figure.wide {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    margin: 30px 6px 40px;
+    padding: 0 14px 44px;
+    border-width: 3px;
+    box-shadow: 6px 6px 0 var(--cool);
+  }
+
+  h1 {
+    text-shadow: 2px 2px 0 var(--hot);
+  }
+
+  .terminal__title {
+    left: 12px;
+  }
+
+  .terminal__body {
+    padding: 34px 0 22px;
+  }
+
+  article h2 {
+    font-size: 1.7rem;
+  }
+
+  article img,
+  .video iframe,
+  figure.viz,
+  figure.mini,
+  .board {
+    box-shadow: 4px 4px 0 var(--cool);
+  }
+}

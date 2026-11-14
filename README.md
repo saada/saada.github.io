@@ -11,6 +11,13 @@ bun run build
 
 Deployment is done using GH actions.
 
+## Blog styling
+
+Each post in `blog/<slug>/` carries its own stylesheet. `blog/arles.css` is linked after it and
+re-inks the post in the home page's colours (a cream sheet on the yellow ground, olive-black when
+the home page's theme is set to night). A new post needs the same two lines in its `<head>` as the
+existing ones: the `<link rel="stylesheet" href="/blog/arles.css">` and the small `theme` script.
+
 ## Link cards
 
 Every post in `blog/<slug>/` gets a 1200x630 link card for X, LinkedIn and friends. X shows only
