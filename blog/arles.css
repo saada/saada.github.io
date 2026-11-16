@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;700&family=Special+Elite&display=swap");
-
 /* The blog in the home page's Arles colours.
  *
  * Each post carries its own stylesheet, written against a handful of colour variables.
@@ -7,8 +5,8 @@
  * becomes a cream sheet with a keyline and a hard shadow, lying on the sunflower-yellow
  * ground (olive-black at night, when the home page's theme is set to dark).
  *
- * Body text stays in Vollkorn: these are long reads. Headings take the home page's
- * blackletter, labels its typewriter face, and code keeps JetBrains Mono.
+ * Type is the posts' own: Vollkorn for text and headings, JetBrains Mono for labels and
+ * code. Only the heading sizes and weights change here.
  */
 :root {
   color-scheme: light;
@@ -18,8 +16,6 @@
   --hot: #e8641b;
   --cool: #1f8a8a;
   --sun-deep: #f7c948;
-  --gothic: "Grenze Gotisch", Georgia, "Times New Roman", serif;
-  --type: "Special Elite", "Courier New", Courier, monospace;
 
   /* the posts' own variables, re-inked for cream paper */
   --bg: #fff8e6;
@@ -103,14 +99,15 @@ a:focus-visible {
   top: -21px;
   left: 22px;
   margin: 0;
-  padding: 9px 12px 6px;
+  padding: 8px 12px 7px;
   background: var(--sun-deep);
   color: var(--key);
   border: 3px solid var(--key);
-  font-family: var(--type);
-  font-size: 13px;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 12px;
   line-height: 1;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   rotate: -2deg;
@@ -126,9 +123,10 @@ a:focus-visible {
 }
 
 .prompt {
-  font-family: var(--type);
-  font-size: 0.76rem;
-  letter-spacing: 0.16em;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text);
 }
@@ -139,11 +137,11 @@ a:focus-visible {
 
 h1 {
   margin: 12px 0 14px;
-  font-family: var(--gothic);
-  font-weight: 700;
-  font-size: clamp(2.2rem, 5.4vw, 3.4rem);
-  line-height: 1;
-  text-shadow: 3px 3px 0 var(--hot);
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2rem, 4.8vw, 2.9rem);
+  line-height: 1.08;
+  text-shadow: 2px 2px 0 var(--hot);
   text-wrap: balance;
 }
 
@@ -156,23 +154,16 @@ h1 {
 
 article h2 {
   margin: 60px 0 16px;
-  font-family: var(--gothic);
-  font-weight: 700;
-  font-size: 1.95rem;
-  line-height: 1.05;
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 1.6rem;
+  line-height: 1.15;
   letter-spacing: 0;
-  text-shadow: 2px 2px 0 var(--hot);
 }
 
 article h2::before,
 .lab__h::before {
   content: none;
-}
-
-article h3,
-article h4 {
-  font-family: var(--type);
-  letter-spacing: 0.03em;
 }
 
 article img {
@@ -183,16 +174,6 @@ article img {
 .video iframe {
   border: 3px solid var(--key);
   box-shadow: 6px 6px 0 var(--hot);
-}
-
-.caption,
-.series,
-.act,
-.callout__title,
-.labcard__k,
-.labtoc__t,
-footer {
-  font-family: var(--type);
 }
 
 pre {
@@ -313,10 +294,6 @@ figure.mini a:hover,
     box-shadow: 6px 6px 0 var(--cool);
   }
 
-  h1 {
-    text-shadow: 2px 2px 0 var(--hot);
-  }
-
   .terminal__title {
     left: 12px;
   }
@@ -326,7 +303,7 @@ figure.mini a:hover,
   }
 
   article h2 {
-    font-size: 1.7rem;
+    font-size: 1.45rem;
   }
 
   article img,
