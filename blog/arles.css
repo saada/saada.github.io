@@ -1,27 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;700&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap");
 
-/* The blog in the home page's Arles colours.
+/* The blog in the home page's Arles colours and type.
  *
- * Each post carries its own stylesheet, written against a handful of colour variables.
- * This file is linked after it and changes the variables and the page furniture: the post
- * becomes a cream sheet with a keyline and a hard shadow, lying on the sunflower-yellow
- * ground (olive-black at night, when the home page's theme is set to dark).
+ * Each post carries its own stylesheet, written against a handful of variables. This file
+ * is linked after it and changes the variables and the page furniture: the post becomes a
+ * cream sheet with a keyline and one hard shadow, lying on the sunflower-yellow ground
+ * (olive-black at night, when the home page's theme is set to dark).
  *
- * Body text stays in Vollkorn: these are long reads. Headings take the home page's
- * blackletter, labels its typewriter face, and code keeps JetBrains Mono.
+ * Type is IBM Plex, as on the home page: Sans for the text, Mono for headings, labels and
+ * code. The posts name their faces --serif and --mono; both are repointed here.
  */
 :root {
   color-scheme: light;
   --ground: #e8b830;
-  --dots: rgba(40, 44, 24, 0.16);
   --key: #282c18;
-  --hot: #e8641b;
   --cool: #1f8a8a;
-  --sun-deep: #f7c948;
-  --gothic: "Grenze Gotisch", Georgia, "Times New Roman", serif;
-  --type: "Special Elite", "Courier New", Courier, monospace;
+  --serif: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* the posts' own variables, re-inked for cream paper */
+  /* the posts' own colours, re-inked for cream paper */
   --bg: #fff8e6;
   --surface: #f6ecd0;
   --surface-2: #f1e5c2;
@@ -37,17 +34,16 @@
 
 [data-theme="dark"] {
   --ground: #1d2012;
-  --dots: rgba(232, 184, 48, 0.12);
   --cool: #2fb3ae;
 }
 
 body {
   background: var(--ground);
+  font-size: 17px;
 }
 
-/* a halftone screen over the ground, as on the home page */
 body::before {
-  background: radial-gradient(circle, var(--dots) 1.2px, transparent 1.7px) 0 0 / 8px 8px;
+  content: none;
 }
 
 a {
@@ -71,66 +67,49 @@ a:focus-visible {
 .container {
   position: relative;
   max-width: 824px;
-  margin: 48px auto 72px;
+  margin: 40px auto 64px;
   padding: 0 40px 56px;
   background: var(--bg);
-  border: 4px solid var(--key);
-  box-shadow: 12px 12px 0 var(--cool);
+  border: 3px solid var(--key);
+  box-shadow: 8px 8px 0 var(--cool);
 }
 
-/* The header: was a terminal window, now the top of the handbill
+/* The header: was a terminal window, now the top of the sheet
 -------------------------------------------------- */
 
 .terminal {
   margin-top: 0;
   background: none;
   border: 0;
-  border-bottom: 3px double var(--key);
+  border-bottom: 1px solid var(--key);
   border-radius: 0;
   box-shadow: none;
-  overflow: visible;
 }
 
 .terminal__bar {
-  padding: 0;
+  padding: 30px 0 0;
   background: none;
   border: 0;
 }
 
-/* the way home, as the caption box that overlaps the sheet's top edge */
+/* the way home */
 .terminal__title {
-  position: absolute;
-  top: -21px;
-  left: 22px;
   margin: 0;
-  padding: 9px 12px 6px;
-  background: var(--sun-deep);
-  color: var(--key);
-  border: 3px solid var(--key);
-  font-family: var(--type);
-  font-size: 13px;
-  line-height: 1;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  rotate: -2deg;
-}
-
-.terminal__title:hover {
-  color: var(--key);
-  rotate: -0.5deg;
+  color: var(--text);
+  font: 600 0.95rem/1.2 var(--mono);
+  letter-spacing: -0.02em;
+  text-decoration-color: var(--link);
 }
 
 .terminal__body {
-  padding: 40px 0 26px;
+  padding: 22px 0 24px;
 }
 
 .prompt {
-  font-family: var(--type);
-  font-size: 0.76rem;
-  letter-spacing: 0.16em;
+  font: 500 11.5px/1.4 var(--mono);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--accent);
 }
 
 .prompt::before {
@@ -138,13 +117,14 @@ a:focus-visible {
 }
 
 h1 {
-  margin: 12px 0 14px;
-  font-family: var(--gothic);
-  font-weight: 700;
-  font-size: clamp(2.2rem, 5.4vw, 3.4rem);
-  line-height: 1;
-  text-shadow: 3px 3px 0 var(--hot);
+  margin: 10px 0 14px;
+  font: 600 clamp(1.6rem, 3.8vw, 2.2rem) / 1.14 var(--mono);
+  letter-spacing: -0.04em;
   text-wrap: balance;
+}
+
+.subtitle {
+  font-style: normal;
 }
 
 .cursor {
@@ -155,13 +135,9 @@ h1 {
 -------------------------------------------------- */
 
 article h2 {
-  margin: 60px 0 16px;
-  font-family: var(--gothic);
-  font-weight: 700;
-  font-size: 1.95rem;
-  line-height: 1.05;
-  letter-spacing: 0;
-  text-shadow: 2px 2px 0 var(--hot);
+  margin: 56px 0 16px;
+  font: 600 1.3rem/1.2 var(--mono);
+  letter-spacing: -0.03em;
 }
 
 article h2::before,
@@ -169,30 +145,9 @@ article h2::before,
   content: none;
 }
 
-article h3,
-article h4 {
-  font-family: var(--type);
-  letter-spacing: 0.03em;
-}
-
-article img {
-  border: 3px solid var(--key);
-  box-shadow: 6px 6px 0 var(--cool);
-}
-
+article img,
 .video iframe {
-  border: 3px solid var(--key);
-  box-shadow: 6px 6px 0 var(--hot);
-}
-
-.caption,
-.series,
-.act,
-.callout__title,
-.labcard__k,
-.labtoc__t,
-footer {
-  font-family: var(--type);
+  border: 2px solid var(--key);
 }
 
 pre {
@@ -205,24 +160,17 @@ article :not(pre) > code {
   overflow-wrap: anywhere;
 }
 
-blockquote {
-  border-left-color: var(--hot);
-}
-
 .callout,
-.labcard {
-  border: 3px solid var(--key);
-  box-shadow: 5px 5px 0 var(--sun-deep);
-}
-
-.labcard:hover {
-  box-shadow: 7px 7px 0 var(--hot);
-}
-
+.labcard,
 .stat,
 nav.labtoc {
   border: 2px solid var(--key);
   border-radius: 0;
+}
+
+.labcard:hover {
+  box-shadow: none;
+  background: var(--surface-2);
 }
 
 .act {
@@ -230,7 +178,7 @@ nav.labtoc {
 }
 
 .labnotes {
-  border-top: 3px double var(--key);
+  border-top: 1px solid var(--key);
 }
 
 .state--on {
@@ -249,15 +197,15 @@ figure.wide {
 }
 
 footer {
-  border-top: 3px double var(--key);
+  border-top: 1px solid var(--key);
 }
 
 footer a:hover {
   color: var(--accent);
 }
 
-/* Charts and the drawn pedalboard keep the dark palette they were checked against,
-   as dark plates set into the paper. The variables are put back inside them only. */
+/* Charts and the drawn pedalboard keep the dark palette and the face they were checked
+   against, as dark plates set into the paper. The variables are put back inside them only. */
 figure.viz,
 figure.mini,
 .board {
@@ -270,15 +218,11 @@ figure.mini,
   --accent: #e0b366;
   --link: #6fb7af;
   --tag: #d98a5c;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   color: var(--text);
-  border: 3px solid var(--key);
+  border: 2px solid var(--key);
   border-radius: 0;
-  box-shadow: 6px 6px 0 var(--hot);
-}
-
-figure.viz--highlight {
-  border-color: var(--key);
-  box-shadow: 6px 6px 0 var(--cool);
+  box-shadow: none;
 }
 
 figure.viz .state--on,
@@ -296,7 +240,7 @@ figure.mini a:hover,
 
 @media (max-width: 900px) {
   .container {
-    margin: 34px 16px 52px;
+    margin: 30px 16px 48px;
   }
 
   figure.wide {
@@ -306,34 +250,22 @@ figure.mini a:hover,
 }
 
 @media (max-width: 560px) {
+  body {
+    font-size: 16.5px;
+  }
+
   .container {
-    margin: 30px 6px 40px;
-    padding: 0 14px 44px;
-    border-width: 3px;
+    margin: 22px 8px 36px;
+    padding: 0 16px 44px;
     box-shadow: 6px 6px 0 var(--cool);
   }
 
-  h1 {
-    text-shadow: 2px 2px 0 var(--hot);
-  }
-
-  .terminal__title {
-    left: 12px;
-  }
-
-  .terminal__body {
-    padding: 34px 0 22px;
+  .terminal__bar {
+    padding-top: 22px;
   }
 
   article h2 {
-    font-size: 1.7rem;
-  }
-
-  article img,
-  .video iframe,
-  figure.viz,
-  figure.mini,
-  .board {
-    box-shadow: 4px 4px 0 var(--cool);
+    margin-top: 44px;
+    font-size: 1.2rem;
   }
 }
