@@ -11,7 +11,13 @@ import ckadURL from "../images/logo_ckad.png";
 
 // The handbill's programme: every way off the page, each destination a sticker.
 const programme = [
-  { label: "The blog", links: [{ text: "Guitar rigs", href: "/blog/tone3000-linux-rig/" }] },
+  {
+    label: "The blog",
+    links: [
+      { text: "Guitar rigs", href: "/blog/tone3000-linux-rig/" },
+      { text: "Dota custom games", href: "/blog/custom-maps-in-dota/" },
+    ],
+  },
   { label: "Older writing", links: [{ text: "Medium", href: "https://medium.com/@saada" }] },
   { label: "Code", links: [{ text: "GitHub", href: "https://github.com/saada" }] },
   { label: "Talks", links: [{ text: "Watch them", href: "#talks" }] },
@@ -200,6 +206,11 @@ const byNewest = (a: Post, b: Post) => b.pubDate.localeCompare(a.pubDate);
 // Posts that live on this site or outside Medium. They show at once, and still show if
 // the Medium feed cannot be reached.
 const ownPosts: Post[] = [
+  {
+    title: "How Claude's Fable 5.2 Revived Warcraft III and StarCraft II Custom Maps Inside Dota 2",
+    link: "/blog/custom-maps-in-dota/",
+    pubDate: "2026-11-16 00:00:00",
+  },
   {
     title: "An AI Agent Built My Entire Guitar Rig on Omarchy, So I Just Play",
     link: "/blog/tone3000-linux-rig/",
