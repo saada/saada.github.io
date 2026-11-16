@@ -1,0 +1,16 @@
+{
+  "headline": "Warcraft III maps, <em>alive in Dota 2</em>",
+  "kicker": "Claude Code + Fable 5.2 \u00b7 two custom games, built from Linux",
+  "tags": [
+    "Dota 2",
+    "Warcraft III",
+    "Claude Code"
+  ],
+  "image": "images/azure-round-10.jpg",
+  "focus": "62% 50%",
+  "accent": "#7aa2f7",
+  "imageWidth": 600,
+  "headlinePx": 62,
+  "fade": 12,
+  "brightness": 1.1
+}
