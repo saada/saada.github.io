@@ -3,13 +3,11 @@ import Layout from "./Layout";
 import { Scene, SceneMode } from "./scene";
 import { z } from "zod";
 // @ts-ignore
-import cameoURL from "../images/portrait-cameo.jpg";
-// @ts-ignore
 import ckaURL from "../images/logo_cka.png";
 // @ts-ignore
 import ckadURL from "../images/logo_ckad.png";
 
-// The handbill's programme: every way off the page, each destination a sticker.
+// Every way off the page, as the card's list of links.
 const programme = [
   {
     label: "The blog",
@@ -35,13 +33,8 @@ const programme = [
       { text: "Splendid", href: "https://splendid.games" },
     ],
   },
-  { label: "The long version", links: [{ text: "Read it all", href: "#experience", dark: true }] },
+  { label: "The long version", links: [{ text: "Read it all", href: "#experience" }] },
 ];
-
-const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
-const FILLS = ["sun", "sea", "clay", "white"];
-const SHAPES = ["pill", "soft", "square"];
-const TILTS = [-2, 1.5, -1, 2, -1.5, 1.5, 1.5, -2, -1];
 
 const experience = [
   {
@@ -240,14 +233,14 @@ async function getPosts(): Promise<Post[]> {
 
 const Cross = () => (
   <svg aria-hidden="true" viewBox="0 0 20 20">
-    <path d="M5 5.3C8 8.2 11.4 11.5 15 14.8M14.8 5C11.7 8.4 8.5 11.4 5.2 15" />
+    <path d="M5 5L15 15M15 5L5 15" />
   </svg>
 );
 
-// The first screen: a handbill pinned over a picture that keeps drawing itself.
+// The first screen: a card over a picture that keeps drawing itself.
 const Hero = () => {
   const canvas = useRef<HTMLCanvasElement>(null);
-  const sprites = useRef<HTMLCanvasElement>(null);
+  const card = useRef<HTMLElement>(null);
   const scene = useRef<Scene | null>(null);
   const [theme, setTheme] = useState<SceneMode>(() =>
     typeof document !== "undefined" && document.documentElement.dataset.theme === "dark"
@@ -257,7 +250,7 @@ const Hero = () => {
   const [away, setAway] = useState(false);
 
   useEffect(() => {
-    scene.current = new Scene(canvas.current!, sprites.current!, theme);
+    scene.current = new Scene(canvas.current!, theme, card.current);
     return () => scene.current?.destroy();
     // the scene is created once; later theme changes go through setMode
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -273,110 +266,64 @@ const Hero = () => {
     scene.current?.setMode(next);
   };
 
-  let sticker = 0;
-
   return (
     <header className="hero">
       <canvas ref={canvas} className="hero__canvas" aria-hidden="true" />
-      <div className="hero__dots" aria-hidden="true" />
-      <canvas ref={sprites} className="hero__canvas hero__canvas--front" aria-hidden="true" />
 
-      <div className={away ? "bill-wrap bill-wrap--away" : "bill-wrap"}>
-        <article className="bill" aria-labelledby="name">
-          <p className="bill__caption">Meanwhile, at Carta…</p>
+      <div className={away ? "card-wrap card-wrap--away" : "card-wrap"}>
+        <article ref={card} className="card" aria-labelledby="name">
           <button
-            className="bill__close"
+            className="card__close"
             type="button"
-            aria-label="Put the handbill away"
+            aria-label="Put the card away"
             onClick={() => setAway(true)}
           >
             <Cross />
           </button>
 
-          <div className="bill__cols">
-            <div className="bill__intro">
-              <p className="overline">Developer Experience · AI Agents · Reliability</p>
+          <div className="card__cols">
+            <div className="card__intro">
+              <p className="label label--accent">Staff AI Engineer · Carta</p>
               <h1 id="name" className="name">
                 Mahmoud Saada
               </h1>
-              <svg className="swipe" aria-hidden="true" viewBox="0 0 360 22" preserveAspectRatio="none">
-                <path d="M5 12C42 5 74 17 110 10s72-7 104 1 60 7 90 0 34-4 50 2" />
-              </svg>
-              <p className="role-strip">Staff AI Engineer</p>
               <p className="lede">
                 Most recently a founding engineer of{" "}
-                <a className="hl" href="https://evergreen.carta.com">
-                  Evergreen by Carta
-                </a>
-                . I lead the team bringing AI agentic engineering to all of{" "}
-                <a className="hl" href="https://carta.com">
-                  Carta
-                </a>
-                , beyond engineering.
+                <a href="https://evergreen.carta.com">Evergreen by Carta</a>. I lead the team
+                bringing AI agentic engineering to all of <a href="https://carta.com">Carta</a>,
+                beyond engineering.
               </p>
               <p className="lede">
-                Before that came a decade of developer experience, site reliability, platform
-                and full-stack work. I contribute to{" "}
-                <a className="hl" href="https://github.com/astral-sh/ty">
-                  ty
-                </a>{" "}
-                and maintain{" "}
-                <a className="hl" href="https://github.com/yetibot/yetibot">
-                  Yetibot
-                </a>
-                .
+                Before that came a decade of developer experience, site reliability, platform and
+                full-stack work. I contribute to <a href="https://github.com/astral-sh/ty">ty</a>{" "}
+                and maintain <a href="https://github.com/yetibot/yetibot">Yetibot</a>.
               </p>
             </div>
 
-            <div className="bill__programme">
-              <div className="cameo-row">
-                <span className="cameo" aria-hidden="true">
-                  <img src={cameoURL} alt="" />
-                </span>
-                <p className="scrawl">Kubernetes certified, twice (CKA + CKAD)</p>
-              </div>
-
-              <div className="programme-head">
-                <h2>Programme</h2>
-              </div>
-
-              <ol className="programme">
-                {programme.map((row, i) => (
-                  <li key={row.label} style={{ animationDelay: `${2.45 + i * 0.1}s` }}>
-                    <span className="programme__no">{ROMAN[i]}.</span>
-                    <span className="programme__label">{row.label}</span>
-                    <span className="leader" aria-hidden="true" />
-                    <span className="stickers" style={{ animationDelay: `${2.6 + i * 0.1}s` }}>
-                      {row.links.map((link: any) => {
-                        const n = sticker++;
-                        const look = link.dark
-                          ? "stk stk--dark stk--pill"
-                          : `stk stk--${FILLS[n % FILLS.length]} stk--${SHAPES[n % SHAPES.length]}`;
-                        return (
-                          <a
-                            key={link.href}
-                            className={look}
-                            href={link.href}
-                            style={{ rotate: `${TILTS[n % TILTS.length]}deg` }}
-                          >
-                            {link.text}
-                          </a>
-                        );
-                      })}
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </div>
+            <ul className="links">
+              {programme.map((row) => (
+                <li key={row.label}>
+                  <span className="label">{row.label}</span>
+                  <span>
+                    {row.links.map((link, i) => (
+                      <React.Fragment key={link.href}>
+                        {i > 0 && ", "}
+                        <a href={link.href}>{link.text}</a>
+                      </React.Fragment>
+                    ))}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </article>
       </div>
 
       {away && (
         <button
-          className="bill-mini"
+          className="chip card-mini"
           type="button"
-          aria-label="Show the handbill again"
+          aria-label="Show the card again"
           onClick={() => setAway(false)}
         >
           Mahmoud Saada
@@ -388,7 +335,7 @@ const Hero = () => {
           redraw
         </button>
         <button
-          className="chip chip--mode"
+          className="chip"
           type="button"
           onClick={toggle}
           aria-label={`Colour theme: ${theme === "dark" ? "night" : "day"}. Switch`}
@@ -409,18 +356,16 @@ const Section = ({ title, children, className = "" }) => (
 
 const ExperienceCard = ({ company, href, roles }) => (
   <article className="panel xp-card">
-    <a className="panel__title hl" href={href}>
-      {company}
-    </a>
+    <h3 className="panel__title">
+      <a href={href}>{company}</a>
+    </h3>
     {roles.map((role) => (
       <div className="xp-role" key={role.title}>
         <div className="xp-role__title">{role.title}</div>
         {role.org && (
           <div className="xp-role__org">
             {role.orgHref ? (
-              <a className="hl" href={role.orgHref}>
-                {role.org}
-              </a>
+              <a href={role.orgHref}>{role.org}</a>
             ) : (
               role.org
             )}
@@ -435,18 +380,16 @@ const ExperienceCard = ({ company, href, roles }) => (
 const ContribCard = ({ project, org, href, note, prs }) => (
   <article className="panel contrib">
     <div className="contrib__head">
-      <a className="panel__title hl" href={href}>
-        {project}
-      </a>
+      <h3 className="panel__title">
+        <a href={href}>{project}</a>
+      </h3>
       {org && <span className="contrib__org">{org}</span>}
     </div>
     <p className="contrib__note">{note}</p>
     <ul className="contrib__prs">
       {prs.map((pr) => (
         <li key={pr.href}>
-          <a className="hl" href={pr.href}>
-            {pr.title}
-          </a>
+          <a href={pr.href}>{pr.title}</a>
         </li>
       ))}
     </ul>
@@ -506,7 +449,6 @@ const Home = () => {
           {posts.map((p) => (
             <li key={p.link}>
               <a href={p.link}>{p.title}</a>
-              <span className="leader" aria-hidden="true" />
               <span className="rows__aside">{p.pubDate.split(" ")[0]}</span>
             </li>
           ))}
@@ -534,7 +476,6 @@ const Home = () => {
           {projects.map((p) => (
             <li key={p.href}>
               <a href={p.href}>{p.title}</a>
-              <span className="leader" aria-hidden="true" />
               {p.note && <span className="rows__aside">{p.note}</span>}
             </li>
           ))}
@@ -546,17 +487,14 @@ const Home = () => {
         <img className="panel" src={ckadURL} alt="Certified Kubernetes Application Developer" />
       </Section>
 
-      <Section title="games" className="sticker-row">
-        {games.map((g, i) => (
-          <a
-            key={g.href}
-            className={`stk stk--${FILLS[(i + 2) % FILLS.length]} stk--${SHAPES[i % SHAPES.length]}`}
-            href={g.href}
-            style={{ rotate: `${TILTS[i]}deg` }}
-          >
-            {g.title}
-          </a>
-        ))}
+      <Section title="games">
+        <ul className="rows">
+          {games.map((g) => (
+            <li key={g.href}>
+              <a href={g.href}>{g.title}</a>
+            </li>
+          ))}
+        </ul>
       </Section>
     </Layout>
   );
